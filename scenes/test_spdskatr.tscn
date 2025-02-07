@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bo51v4dymvm1t"]
+
+[ext_resource type="PackedScene" uid="uid://c7861vcnmeslg" path="res://scenes/objects/player.tscn" id="1_ll32n"]
+[ext_resource type="PackedScene" uid="uid://dulabxngl3sch" path="res://scenes/objects/wall.tscn" id="2_8lnho"]
+
+[node name="TestSpdskatr" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_ll32n")]
+position = Vector2(1000, 500)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 237.0
+offset_bottom = 40.0
+text = "test test beep boop"
+
+[node name="Wall" parent="." instance=ExtResource("2_8lnho")]
+position = Vector2(431, 260)
+scale = Vector2(1, 10)
