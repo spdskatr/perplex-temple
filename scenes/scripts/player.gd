@@ -5,9 +5,10 @@ extends CharacterBody2D
 
 func get_input():
 	var direction = Input.get_vector("left", "right", "up", "down")
+	var magnitude = direction.length()
 	if direction.length() > 0:
 		direction = direction.normalized()
-		if not Input.is_action_pressed("shift"):
+		if not Input.is_action_pressed("shift") and magnitude == 1:
 			rotation = direction.angle()
 	velocity = direction * speed
 

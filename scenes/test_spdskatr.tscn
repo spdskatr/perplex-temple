@@ -8,6 +8,8 @@
 [node name="Player" parent="." instance=ExtResource("1_ll32n")]
 position = Vector2(1000, 500)
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_right = 237.0
 offset_bottom = 40.0
