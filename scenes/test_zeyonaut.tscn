@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://du2k6sl70bnwc"]
+
+[ext_resource type="Script" path="res://scenes/test_zeyonaut/bg_color.gd" id="1_lxgte"]
+
+[node name="TestSlider" type="Node2D"]
+
+[node name="BG" type="Node2D" parent="."]
+
+[node name="BGColor" type="ColorRect" parent="BG"]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0.846466, 0.767997, 1)
+script = ExtResource("1_lxgte")
+
+[node name="SliderBox" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 427.0
+offset_top = 183.0
+offset_right = 467.0
+offset_bottom = 223.0
+
+[node name="HSlider" type="HSlider" parent="SliderBox"]
+layout_mode = 0
+offset_left = 184.0
+offset_top = 50.0
+offset_right = 384.0
+offset_bottom = 66.0
+
+[connection signal="value_changed" from="SliderBox/HSlider" to="BG/BGColor" method="_on_h_slider_value_changed"]
