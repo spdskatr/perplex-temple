@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var elements: Array[Element.TYPE] = []
 @export var speed: float = 500.0
+@export var walk_speed : float = 200.0
 @export var light: PointLight2D
 
 func get_input():
@@ -13,7 +14,10 @@ func get_input():
 			rotation = direction.angle()
 	
 	if Element_set.can_move(elements):
-		velocity = direction * speed
+		if Input.is_action_pressed("shift"):
+			velocity = direction * walk_speed
+		else:
+			velocity = direction * speed
 	else:
 		velocity = Vector2(0, 0)
 
