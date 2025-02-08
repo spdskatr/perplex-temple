@@ -15,7 +15,7 @@ func _process(_delta: float) -> void:
 
 func _on_pad_body_entered(body: Node2D) -> void:
 	# You can do some game logic here idk
-	textbox.show_text("You stepped on the pad!")
+	textbox.show_text("You stepped on the pad!\nYou fool! You moron!")
 	print(body)
 	pass # Replace with function body.
 
