@@ -1,11 +1,14 @@
 extends CharacterBody2D
 
-@export var elements: Array[Element.TYPE] = []
 @export var speed: float = 500.0
 @export var walk_speed : float = 200.0
 @export var frozen: bool = false
 @export var light: PointLight2D
+@export var visible_objects: Dictionary = {}
 var since_standing = 0.0
+
+func get_elements():
+	return visible_objects.values()
 
 func _ready() -> void:
 	var slider = get_tree().current_scene.get_node_or_null("HUD/SliderBox/HSlider")
@@ -57,7 +60,7 @@ func get_input(_delta):
 	else:
 		since_standing = 0
 	
-	if not frozen and Element_set.can_move(elements):
+	if not frozen and Element_set.can_move(get_elements()):
 		var standing_mod = min(1, since_standing / 0.15) 
 		if Input.is_action_pressed("shift"):
 			velocity = direction * walk_speed * standing_mod
@@ -72,7 +75,7 @@ func _physics_process(_delta):
 
 func update_light():
 	# Yeah, this is a hack
-	light.energy = Element_set.glows(elements)
+	light.energy = Element_set.glows(get_elements())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
