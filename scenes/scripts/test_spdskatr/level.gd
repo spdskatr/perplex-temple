@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var player : CharacterBody2D = get_node("Level/Player")
+@onready var player : CharacterBody2D = get_node("Player")
 @onready var textbox : Panel = get_node("Dialogue/Panel")
 
 # Called when the node enters the scene tree for the first time.
@@ -23,7 +23,7 @@ func _on_pad_body_entered(body: Node2D) -> void:
 func with_blink(callback):
 	var blinking = func():
 		player.frozen = true
-		await $Level/Transition.transit()
+		await $Transition.transit()
 		callback.call()
 		player.frozen = false
 	return blinking

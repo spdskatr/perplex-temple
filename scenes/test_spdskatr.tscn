@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://bo51v4dymvm1t"]
+[gd_scene load_steps=12 format=4 uid="uid://bo51v4dymvm1t"]
 
 [ext_resource type="Script" path="res://scenes/scripts/test_spdskatr/level.gd" id="1_12a1y"]
 [ext_resource type="PackedScene" uid="uid://c7861vcnmeslg" path="res://scenes/objects/player.tscn" id="1_ll32n"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bbfal07mc8oso" path="res://assets/faces/placeholder2.png" id="6_x48w0"]
 [ext_resource type="PackedScene" uid="uid://cv8ct654whpqf" path="res://scenes/objects/ice_cube.tscn" id="8_oxbxt"]
 [ext_resource type="PackedScene" uid="uid://d3bbckj3x7cqi" path="res://scenes/hud.tscn" id="9_hbrsj"]
+[ext_resource type="Script" path="res://scenes/scripts/transition.gd" id="10_e66bv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gwwp"]
 size = Vector2(10, 10)
@@ -76,6 +77,9 @@ shape = SubResource("RectangleShape2D_8gwwp")
 position = Vector2(-188, 224)
 
 [node name="HUD" parent="." instance=ExtResource("9_hbrsj")]
+
+[node name="Transition" type="CanvasModulate" parent="."]
+script = ExtResource("10_e66bv")
 
 [connection signal="body_entered" from="Pad" to="." method="_on_pad_body_entered"]
 [connection signal="body_entered" from="Pad2" to="." method="_on_pad_2_body_entered"]
