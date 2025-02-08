@@ -46,7 +46,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0, 0)
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xof4q"]
-polygon = PackedVector2Array(51, 4, 51, 19, 51, 34, 36, 34, 36, 19, 36, 4)
+polygon = PackedVector2Array(36, 19, 51, 19, 36, 19, 36, 19, 36, 19, 36, 19)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("light")]
 light_mask = 0
@@ -99,7 +99,7 @@ texture = SubResource("GradientTexture2D_lgx2o")
 
 [node name="EarLight" type="PointLight2D" parent="."]
 color = Color(1, 0.745098, 1, 1)
-energy = 0.5
+energy = 0.0
 shadow_enabled = true
 shadow_item_cull_mask = 256
 texture = SubResource("GradientTexture2D_djj8y")
@@ -108,7 +108,7 @@ texture = SubResource("GradientTexture2D_djj8y")
 
 [node name="Collision" type="CollisionPolygon2D" parent="EyeArea"]
 position = Vector2(-51, -19)
-polygon = PackedVector2Array(51, 4, 51, 19, 51, 34, 36, 34, 36, 19, 36, 4)
+polygon = PackedVector2Array(36, 19, 51, 19, 36, 19, 36, 19, 36, 19, 36, 19)
 
 [node name="Occlude" type="LightOccluder2D" parent="EyeArea"]
 visibility_layer = 0

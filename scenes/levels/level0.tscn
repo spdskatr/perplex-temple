@@ -27,3 +27,6 @@ tile_set = ExtResource("1_yqdep")
 [node name="Dialogue" parent="." instance=ExtResource("3_kgbqe")]
 
 [node name="HUD" parent="." instance=ExtResource("4_ka3fi")]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)

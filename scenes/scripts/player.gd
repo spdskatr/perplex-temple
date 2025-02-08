@@ -17,14 +17,22 @@ func _on_slider_changed(value: float) -> void:
 	var cx = 51
 	var cy = 19
 	var rad = 15
-	var alpha = ratio * TAU/4
+	var alpha = ratio * TAU/2
 	var dx = rad * cos(alpha)
 	var dy = rad * sin(alpha)
-	$EarLight.energy = (1 - ratio) * 1
+	
+	$EarLight.energy = (1 - ratio) * 0.25
+	
 	$EyeArea/Occlude.occluder.polygon[0] = Vector2(cx + dx, cy - dy)
 	$EyeArea/Occlude.occluder.polygon[2] = Vector2(cx + dx, cy + dy)
 	$EyeArea/Collision.polygon[0] = Vector2(cx + dx, cy - dy)
 	$EyeArea/Collision.polygon[2] = Vector2(cx + dx, cy + dy)
+	if (ratio > 0.3):
+		$EyeArea/Occlude.occluder.polygon[3] = $EyeArea/Occlude.occluder.polygon[4]
+		$EyeArea/Occlude.occluder.polygon[5] = $EyeArea/Occlude.occluder.polygon[4]
+	else:
+		$EyeArea/Occlude.occluder.polygon[3] = Vector2(cx - rad, cy + rad)
+		$EyeArea/Occlude.occluder.polygon[5] = Vector2(cx - rad, cy - rad)
 
 func get_input():
 	var direction = Input.get_vector("left", "right", "up", "down")
