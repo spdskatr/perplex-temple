@@ -1,11 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3bbckj3x7cqi"]
+[gd_scene load_steps=8 format=3 uid="uid://d3bbckj3x7cqi"]
 
 [ext_resource type="Shader" path="res://assets/tilt_shift.gdshader" id="1_0t4cp"]
-[ext_resource type="Script" path="res://scenes/hud.gd" id="1_q828l"]
+[ext_resource type="Script" path="res://scenes/scripts/hud.gd" id="1_admbs"]
 [ext_resource type="Script" path="res://scenes/scripts/test_zeyonaut/h_slider.gd" id="2_o4r6h"]
+[ext_resource type="FontFile" uid="uid://bqi64atqmb4qq" path="res://assets/fonts/Lexend-Regular.ttf" id="4_2m57d"]
 [ext_resource type="Script" path="res://hud/on_ice.gd" id="4_8dus3"]
 [ext_resource type="Script" path="res://scenes/on_weight.gd" id="5_4x68v"]
-[ext_resource type="FontFile" uid="uid://bqi64atqmb4qq" path="res://assets/fonts/Lexend-Regular.ttf" id="4_2m57d"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ntdl8"]
 shader = ExtResource("1_0t4cp")
@@ -15,7 +15,7 @@ shader_parameter/intensity = 0.15
 shader_parameter/is_debug = false
 
 [node name="HUD" type="CanvasLayer"]
-script = ExtResource("1_q828l")
+script = ExtResource("1_admbs")
 
 [node name="Tilt-Shift" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_ntdl8")
@@ -25,6 +25,7 @@ color = Color(0, 0.846466, 0.767997, 1)
 metadata/_edit_lock_ = true
 
 [node name="SliderBox" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1000.0
@@ -45,24 +46,6 @@ offset_bottom = 86.0
 focus_mode = 0
 value = 100.0
 script = ExtResource("2_o4r6h")
-
-[node name="OnIce" type="Node2D" parent="."]
-position = Vector2(1088, 64)
-script = ExtResource("4_8dus3")
-
-[node name="ColorRect" type="ColorRect" parent="OnIce"]
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0, 1, 1, 1)
-
-[node name="OnWeight" type="Node2D" parent="."]
-position = Vector2(1024, 64)
-script = ExtResource("5_4x68v")
-
-[node name="ColorRect" type="ColorRect" parent="OnWeight"]
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.374139, 0.374139, 0.374139, 1)
 
 [node name="Label" type="Label" parent="SliderBox/Panel"]
 layout_mode = 0
@@ -93,3 +76,21 @@ offset_bottom = 90.0
 theme_override_fonts/font = ExtResource("4_2m57d")
 theme_override_font_sizes/font_size = 20
 text = "Close ears"
+
+[node name="OnIce" type="Node2D" parent="."]
+position = Vector2(1088, 64)
+script = ExtResource("4_8dus3")
+
+[node name="ColorRect" type="ColorRect" parent="OnIce"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0, 1, 1, 1)
+
+[node name="OnWeight" type="Node2D" parent="."]
+position = Vector2(1024, 64)
+script = ExtResource("5_4x68v")
+
+[node name="ColorRect" type="ColorRect" parent="OnWeight"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.374139, 0.374139, 0.374139, 1)

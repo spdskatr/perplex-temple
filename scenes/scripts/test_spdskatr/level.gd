@@ -44,7 +44,7 @@ func _on_door_2_body_entered(body: Node2D) -> void:
 		with_blink(func(): player.position = Vector2(220.0, 20.0)).call_deferred()
 	pass # Replace with function body.
 
-
+	
 func _on_door_3_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		with_blink(change_scene_to_main).call_deferred()
