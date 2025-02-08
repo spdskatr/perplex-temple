@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://c6eq40pouhg3l"]
+[gd_scene load_steps=15 format=4 uid="uid://hxsf55vxqbai"]
 
 [ext_resource type="Script" path="res://scenes/scripts/test_spdskatr/level.gd" id="1_jpc1i"]
 [ext_resource type="Texture2D" uid="uid://bfxppuxqlj1b6" path="res://assets/wall tileset.png" id="2_3b6u8"]
