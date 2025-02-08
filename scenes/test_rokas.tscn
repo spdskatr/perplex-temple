@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://8ah1laycdq35"]
+[gd_scene load_steps=16 format=4 uid="uid://cvtwer1y6s206"]
 
 [ext_resource type="Script" path="res://scenes/scripts/test_spdskatr/level.gd" id="1_12a1y"]
 [ext_resource type="PackedScene" uid="uid://c7861vcnmeslg" path="res://scenes/objects/player.tscn" id="1_ll32n"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bekgnb1j07inf" path="res://assets/gate.png" id="3_tb3rr"]
 [ext_resource type="Texture2D" uid="uid://bfxppuxqlj1b6" path="res://assets/wall tileset.png" id="5_ec8v4"]
 [ext_resource type="Script" path="res://scenes/scripts/dialogue.gd" id="7_41itj"]
+[ext_resource type="PackedScene" uid="uid://g1npvyb4ygmy" path="res://scenes/hud.tscn" id="8_wp5xf"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hvtsb"]
 polygon = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
@@ -261,7 +262,7 @@ fill_to = Vector2(0.788991, 0.165138)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gwwp"]
 size = Vector2(10, 10)
 
-[node name="TestSpdskatr" type="Node2D"]
+[node name="TestRokas" type="Node2D"]
 script = ExtResource("1_12a1y")
 
 [node name="Walls" type="TileMapLayer" parent="."]
@@ -328,6 +329,8 @@ offset_bottom = 23.0
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
+
+[node name="HUD" parent="." instance=ExtResource("8_wp5xf")]
 
 [connection signal="body_entered" from="Pad" to="." method="_on_pad_body_entered"]
 [connection signal="body_entered" from="Door1" to="." method="_on_door_1_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://c7861vcnmeslg"]
+[gd_scene load_steps=12 format=3 uid="uid://c7861vcnmeslg"]
 
 [ext_resource type="Script" path="res://scenes/scripts/player.gd" id="1_c85sp"]
 
@@ -31,7 +31,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0.107798, 0.208716)
 
 [sub_resource type="Gradient" id="Gradient_xwsiy"]
-offsets = PackedFloat32Array(0, 0.584416, 1)
+offsets = PackedFloat32Array(0, 0.873377, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0.285714, 0.285714, 0.285714, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_djj8y"]
@@ -40,13 +40,10 @@ width = 1024
 height = 1024
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.192661, 0.318807)
+fill_to = Vector2(0, 0)
 
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_l2mhx"]
-polygon = PackedVector2Array(36, 4, 66, 4, 50, 19, 66, 34, 36, 34)
-
-[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hlqmd"]
-polygon = PackedVector2Array(15, -15, 1, 0, 15, 15)
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_xof4q"]
+polygon = PackedVector2Array(51, 4, 51, 19, 51, 34, 36, 34, 36, 19, 36, 4)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("light")]
 light_mask = 0
@@ -78,7 +75,7 @@ color = Color(1, 0.972549, 0.796078, 1)
 energy = 1.5
 shadow_enabled = true
 shadow_filter_smooth = 14.9
-shadow_item_cull_mask = 513
+shadow_item_cull_mask = 515
 texture = SubResource("GradientTexture2D_lgx2o")
 
 [node name="EyeLight-Backing" type="PointLight2D" parent="."]
@@ -97,13 +94,14 @@ shadow_enabled = true
 shadow_item_cull_mask = 256
 texture = SubResource("GradientTexture2D_djj8y")
 
-[node name="EyeOcclude" type="LightOccluder2D" parent="."]
+[node name="EyeArea" type="Area2D" parent="."]
+
+[node name="Collision" type="CollisionPolygon2D" parent="EyeArea"]
+position = Vector2(-51, -19)
+polygon = PackedVector2Array(51, 4, 51, 19, 51, 34, 36, 34, 36, 19, 36, 4)
+
+[node name="Occlude" type="LightOccluder2D" parent="EyeArea"]
 visibility_layer = 0
 position = Vector2(-51, -19)
-occluder = SubResource("OccluderPolygon2D_l2mhx")
+occluder = SubResource("OccluderPolygon2D_xof4q")
 occluder_light_mask = 512
-
-[node name="EarOcclude" type="LightOccluder2D" parent="."]
-visibility_layer = 0
-occluder = SubResource("OccluderPolygon2D_hlqmd")
-occluder_light_mask = 256

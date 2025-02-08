@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://d3bbckj3x7cqi"]
+[gd_scene load_steps=4 format=3 uid="uid://g1npvyb4ygmy"]
 
 [ext_resource type="Shader" path="res://assets/tilt_shift.gdshader" id="1_0t4cp"]
 [ext_resource type="Script" path="res://scenes/scripts/test_zeyonaut/h_slider.gd" id="2_o4r6h"]
