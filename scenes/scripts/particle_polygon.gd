@@ -9,7 +9,7 @@ func _ready() -> void:
 	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var timer: Timer = get_node("Timer")
 	if timer.is_stopped():
 		return
@@ -19,7 +19,7 @@ func _process(delta: float) -> void:
 	self.rotation = coprogress * self.orientation_init + (1 - coprogress) * self.orientation_final
 	self.position = (1 - coprogress) * self.position_final
 
-func initialize(color: Color, lifespan: float, size: float, range: float) -> void:
+func initialize(color: Color, lifespan: float, size: float, _range: float) -> void:
 	var polygon: Polygon2D = get_node("Polygon2D")
 	polygon.color = color
 	self.scale = Vector2(size, size)
@@ -27,12 +27,11 @@ func initialize(color: Color, lifespan: float, size: float, range: float) -> voi
 	self.orientation_init = self.rotation
 	self.orientation_final = randf() * 2 * PI
 	var direction = randf() * 2 * PI
-	self.position_final = Vector2(range * cos(direction), range * sin(direction))
+	self.position_final = Vector2(_range * cos(direction), _range * sin(direction))
 	
 	var timer: Timer = get_node("Timer")
 	timer.autostart = true
 	timer.wait_time = lifespan
-	timer.start()
 
 func _on_timer_timeout() -> void:
 	queue_free()

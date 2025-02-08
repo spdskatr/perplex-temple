@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://g1npvyb4ygmy"]
+[gd_scene load_steps=4 format=3 uid="uid://d3bbckj3x7cqi"]
 
 [ext_resource type="Shader" path="res://assets/tilt_shift.gdshader" id="1_0t4cp"]
 [ext_resource type="Script" path="res://scenes/scripts/test_zeyonaut/h_slider.gd" id="2_o4r6h"]
@@ -37,5 +37,6 @@ grow_vertical = 2
 layout_mode = 0
 offset_right = 200.0
 offset_bottom = 16.0
+focus_mode = 0
 value = 100.0
 script = ExtResource("2_o4r6h")
