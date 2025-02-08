@@ -6,6 +6,7 @@
 
 [node name="Dialogue" type="CanvasLayer"]
 process_mode = 3
+layer = 2
 
 [node name="Panel" type="Panel" parent="."]
 visible = false
