@@ -11,6 +11,5 @@ arity = 3
 particle_scene = ExtResource("2_iy2k2")
 
 [node name="ParticleTimer" type="Timer" parent="."]
-autostart = true
 
 [connection signal="timeout" from="ParticleTimer" to="." method="_on_particle_timer_timeout"]

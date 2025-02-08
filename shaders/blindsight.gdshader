@@ -7,7 +7,7 @@ void vertex() {
 }
 
 void fragment() {
-	COLOR.a *= brightness;
+	COLOR.a *= floor(brightness);
 }
 
 //void light() {
