@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://0icglrrykjsp"]
+
+[ext_resource type="Script" path="res://scenes/particle_spawner.gd" id="1_jbkfe"]
+[ext_resource type="PackedScene" uid="uid://dteychobvoyag" path="res://scenes/objects/particle_polygon.tscn" id="2_iy2k2"]
+
+[node name="ParticleSpawner" type="Node2D"]
+position = Vector2(775, 267)
+script = ExtResource("1_jbkfe")
+color = Color(0, 1, 0.866667, 1)
+arity = 3
+particle_scene = ExtResource("2_iy2k2")
+
+[node name="ParticleTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="ParticleTimer" to="." method="_on_particle_timer_timeout"]

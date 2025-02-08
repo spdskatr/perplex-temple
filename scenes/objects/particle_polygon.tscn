@@ -1,14 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dteychobvoyag"]
+[gd_scene load_steps=2 format=3 uid="uid://dteychobvoyag"]
 
 [ext_resource type="Script" path="res://scenes/scripts/particle_polygon.gd" id="1_hw6f7"]
-[ext_resource type="Shader" path="res://shaders/unshaded.gdshader" id="1_pruoh"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_bvr6l"]
-shader = ExtResource("1_pruoh")
 
 [node name="ParticlePolygon" type="Node2D"]
-material = SubResource("ShaderMaterial_bvr6l")
+use_parent_material = true
 script = ExtResource("1_hw6f7")
+
+[node name="Polygon2D3" type="Polygon2D" parent="."]
+visible = false
+use_parent_material = true
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 use_parent_material = true
