@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var element: Element.TYPE
 @export var speed: float = 1000.0
+@export var element_node: Element = Element.new()
 
 func get_input():
 	var direction = Input.get_vector("left", "right", "up", "down")
@@ -10,7 +11,11 @@ func get_input():
 		direction = direction.normalized()
 		if not Input.is_action_pressed("shift") and magnitude == 1:
 			rotation = direction.angle()
-	velocity = direction * speed
+	
+	if element_node.can_move(element):
+		velocity = direction * speed
+	else:
+		velocity = Vector2(0, 0)
 
 func _physics_process(delta):
 	get_input()
