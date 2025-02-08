@@ -298,8 +298,8 @@ texture = SubResource("GradientTexture2D_s5wvx")
 
 [node name="Tilt-Shift" type="ColorRect" parent="HUD"]
 material = SubResource("ShaderMaterial_ntdl8")
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 1200.0
+offset_bottom = 675.0
 color = Color(0, 0.846466, 0.767997, 1)
 metadata/_edit_lock_ = true
 
