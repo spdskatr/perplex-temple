@@ -92,7 +92,8 @@ light_mask = 512
 color = Color(1, 0.972549, 0.796078, 1)
 energy = 0.75
 shadow_enabled = true
-shadow_filter_smooth = 14.9
+shadow_filter = 2
+shadow_filter_smooth = 8.0
 shadow_item_cull_mask = 512
 texture = SubResource("GradientTexture2D_lgx2o")
 

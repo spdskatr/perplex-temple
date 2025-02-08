@@ -4,7 +4,7 @@
 [ext_resource type="Shader" path="res://scenes/walls.gdshader" id="2_yx73h"]
 [ext_resource type="PackedScene" uid="uid://c7861vcnmeslg" path="res://scenes/objects/player.tscn" id="3_4pxs7"]
 [ext_resource type="Texture2D" uid="uid://bfxppuxqlj1b6" path="res://assets/wall tileset.png" id="4_8feic"]
-[ext_resource type="PackedScene" uid="uid://0icglrrykjsp" path="res://scenes/objects/particle_spawner.tscn" id="5_eq1ck"]
+[ext_resource type="PackedScene" path="res://scenes/objects/particle_spawner.tscn" id="5_eq1ck"]
 [ext_resource type="PackedScene" uid="uid://d3bbckj3x7cqi" path="res://scenes/hud.tscn" id="7_a0imx"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_c85sq"]
