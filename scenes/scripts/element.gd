@@ -13,3 +13,9 @@ static func glows(type) -> bool:
 		TYPE.LIGHT:
 			return true
 	return false
+
+static func slides(type) -> bool:
+	match type:
+		TYPE.ICE:
+			return true
+	return false

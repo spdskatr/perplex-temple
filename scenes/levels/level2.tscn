@@ -1,13 +1,23 @@
-[gd_scene load_steps=7 format=4 uid="uid://dv1exaikwhfmm"]
+[gd_scene load_steps=10 format=4 uid="uid://dgtup0id3lcha"]
 
 [ext_resource type="TileSet" uid="uid://d035mgrwol727" path="res://scenes/wall_tileset.tres" id="1_f34ej"]
 [ext_resource type="Script" path="res://scenes/scripts/level_2.gd" id="1_p66es"]
 [ext_resource type="PackedScene" uid="uid://c7861vcnmeslg" path="res://scenes/objects/player.tscn" id="2_mjb16"]
 [ext_resource type="PackedScene" uid="uid://cbsyinmrhl3ll" path="res://scenes/misc/dialogue.tscn" id="3_hynej"]
 [ext_resource type="PackedScene" uid="uid://d3bbckj3x7cqi" path="res://scenes/hud.tscn" id="4_48tce"]
+[ext_resource type="PackedScene" uid="uid://bwe2x266pygss" path="res://scenes/objects/elemental_object.tscn" id="6_pf3em"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ovra3"]
 size = Vector2(20, 93)
+
+[sub_resource type="Gradient" id="Gradient_s7log"]
+offsets = PackedFloat32Array(0, 0.00324675, 1)
+colors = PackedColorArray(0, 0, 1, 1, 0.0519481, 0.0519481, 1, 1, 0.611765, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_fycjw"]
+gradient = SubResource("Gradient_s7log")
+fill = 2
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_p66es")
@@ -42,5 +52,13 @@ shape = SubResource("RectangleShape2D_ovra3")
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 visible = false
 color = Color(0, 0, 0, 1)
+
+[node name="ElementalObject" parent="." instance=ExtResource("6_pf3em")]
+position = Vector2(-880.442, 142.702)
+element = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="ElementalObject"]
+scale = Vector2(0.565081, 0.565081)
+texture = SubResource("GradientTexture2D_fycjw")
 
 [connection signal="body_entered" from="Room1/Area2D" to="." method="_on_area_2d_body_entered"]
