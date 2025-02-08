@@ -6,3 +6,7 @@ func change_scene_to_main():
 func _on_door_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		change_scene_to_main.call_deferred()
+
+
+func _on_dude_body_entered(body):
+	pass # Replace with function body.

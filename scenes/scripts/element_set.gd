@@ -8,6 +8,6 @@ static func can_move(elements) -> bool:
 
 static func glows(elements) -> bool:
 	for el in elements:
-		if !Element.glows(el):
+		if Element.glows(el):
 			return true
 	return false

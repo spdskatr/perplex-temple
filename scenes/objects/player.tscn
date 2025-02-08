@@ -98,6 +98,7 @@ shadow_item_cull_mask = 512
 texture = SubResource("GradientTexture2D_lgx2o")
 
 [node name="EarLight" type="PointLight2D" parent="."]
+scale = Vector2(2, 2)
 color = Color(1, 0.745098, 1, 1)
 energy = 0.0
 shadow_enabled = true
