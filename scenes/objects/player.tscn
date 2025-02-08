@@ -25,4 +25,4 @@ region_rect = Rect2(0, 0, 40, 40)
 shape = SubResource("RectangleShape2D_pe3me")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(0, 2000)
+target_position = Vector2(2000, 0)
