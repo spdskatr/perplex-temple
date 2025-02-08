@@ -1,10 +1,10 @@
 extends Node2D
 
-var player : CharacterBody2D = null
+@onready var player : CharacterBody2D = get_node("Player")
+@onready var textbox : Panel = get_node("UILayer/Panel")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	player = get_node("Player")
 	pass # Replace with function body.
 
 
@@ -15,6 +15,8 @@ func _process(_delta: float) -> void:
 
 func _on_pad_body_entered(body: Node2D) -> void:
 	# You can do some game logic here idk
+	textbox.show()
+	textbox.show_text("You stepped on the pad!")
 	print(body)
 	pass # Replace with function body.
 
