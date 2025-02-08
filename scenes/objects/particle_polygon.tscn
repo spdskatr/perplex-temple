@@ -1,6 +1,19 @@
-[gd_scene format=3 uid="uid://dteychobvoyag"]
+[gd_scene load_steps=4 format=3 uid="uid://dteychobvoyag"]
+
+[ext_resource type="Script" path="res://scenes/scripts/particle_polygon.gd" id="1_hw6f7"]
+[ext_resource type="Shader" path="res://shaders/unshaded.gdshader" id="1_pruoh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bvr6l"]
+shader = ExtResource("1_pruoh")
 
 [node name="ParticlePolygon" type="Node2D"]
+material = SubResource("ShaderMaterial_bvr6l")
+script = ExtResource("1_hw6f7")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+use_parent_material = true
 polygon = PackedVector2Array(0, -1, 0.951, -0.309, 0.588, 0.809, -0.588, 0.809, -0.951, -0.309)
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

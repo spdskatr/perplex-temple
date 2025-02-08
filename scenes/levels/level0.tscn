@@ -1,3 +1,18 @@
-[gd_scene format=3 uid="uid://d4aamoa0lqkb3"]
+[gd_scene load_steps=3 format=3 uid="uid://cpcyu2p5k0ejg"]
+
+[ext_resource type="TileSet" uid="uid://b23l0rpimqhpm" path="res://scenes/wall_tileset.tres" id="1_yqdep"]
+[ext_resource type="PackedScene" uid="uid://c7861vcnmeslg" path="res://scenes/objects/player.tscn" id="2_fguo4"]
 
 [node name="Level0" type="Node2D"]
+
+[node name="Walls" type="TileMapLayer" parent="."]
+position = Vector2(-25, -20)
+scale = Vector2(2.5, 2.5)
+tile_set = ExtResource("1_yqdep")
+
+[node name="Floors" type="TileMapLayer" parent="."]
+position = Vector2(-25, -20)
+scale = Vector2(2.5, 2.5)
+tile_set = ExtResource("1_yqdep")
+
+[node name="Player" parent="." instance=ExtResource("2_fguo4")]
