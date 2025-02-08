@@ -11,6 +11,7 @@ func get_elements():
 	return visible_objects.values()
 
 func _ready() -> void:
+	Global.player = self
 	var slider = get_tree().current_scene.get_node_or_null("HUD/SliderBox/HSlider")
 	if slider:
 		slider.value_changed.connect(_on_slider_changed)

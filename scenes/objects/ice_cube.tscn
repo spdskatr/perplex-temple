@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cv8ct654whpqf"]
 
-[ext_resource type="Script" path="res://scenes/scripts/ice_cube.gd" id="1_jelrm"]
+[ext_resource type="PackedScene" uid="uid://lvk1nwu7fpog" path="res://scenes/objects/elemental_object.tscn" id="1_u7ktt"]
 
 [sub_resource type="Gradient" id="Gradient_s7log"]
 offsets = PackedFloat32Array(0, 0.00324675, 1)
@@ -12,11 +12,8 @@ fill = 2
 fill_from = Vector2(0.5, 0.5)
 
 [node name="IceCube" type="Node2D"]
-script = ExtResource("1_jelrm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("GradientTexture2D_xe6p4")
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(0, 0)
-collide_with_areas = true
+[node name="ElementalObject" parent="." instance=ExtResource("1_u7ktt")]
