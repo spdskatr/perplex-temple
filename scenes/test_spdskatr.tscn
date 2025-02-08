@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bbfal07mc8oso" path="res://assets/faces/placeholder2.png" id="6_x48w0"]
 [ext_resource type="PackedScene" uid="uid://cv8ct654whpqf" path="res://scenes/objects/ice_cube.tscn" id="8_oxbxt"]
 [ext_resource type="PackedScene" uid="uid://d3bbckj3x7cqi" path="res://scenes/hud.tscn" id="9_hbrsj"]
-[ext_resource type="Script" path="res://scenes/scripts/transition.gd" id="10_e66bv"]
+[ext_resource type="PackedScene" uid="uid://bklsi754w04wr" path="res://scenes/misc/transition.tscn" id="10_3omjc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gwwp"]
 size = Vector2(10, 10)
@@ -78,8 +78,7 @@ position = Vector2(-188, 224)
 
 [node name="HUD" parent="." instance=ExtResource("9_hbrsj")]
 
-[node name="Transition" type="CanvasModulate" parent="."]
-script = ExtResource("10_e66bv")
+[node name="Transition" parent="." instance=ExtResource("10_3omjc")]
 
 [connection signal="body_entered" from="Pad" to="." method="_on_pad_body_entered"]
 [connection signal="body_entered" from="Pad2" to="." method="_on_pad_2_body_entered"]

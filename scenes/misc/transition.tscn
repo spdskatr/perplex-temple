@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bklsi754w04wr"]
+
+[ext_resource type="Script" path="res://scenes/scripts/transition.gd" id="1_oa7dk"]
+
+[node name="Transition" type="CanvasModulate"]
+script = ExtResource("1_oa7dk")
