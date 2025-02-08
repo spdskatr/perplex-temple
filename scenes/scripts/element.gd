@@ -3,7 +3,7 @@ extends Node
 
 enum TYPE {DEFAULT, STONE}
 
-func can_move(type) -> bool:
+static func can_move(type) -> bool:
 	match type:
 		TYPE.DEFAULT:
 			return true
