@@ -7,3 +7,10 @@ position = Vector2(-1, 0)
 
 [node name="Player" parent="." instance=ExtResource("1_edkh6")]
 position = Vector2(500, 200)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 96.0
+offset_bottom = 40.0
+text = "hello world"
