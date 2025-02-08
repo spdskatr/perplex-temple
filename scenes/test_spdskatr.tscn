@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://plc656plpuek" path="res://scenes/objects/base_pad.tscn" id="3_0vvmf"]
 [ext_resource type="PackedScene" uid="uid://cbsyinmrhl3ll" path="res://scenes/misc/dialogue.tscn" id="6_tsf0u"]
 [ext_resource type="Texture2D" uid="uid://bbfal07mc8oso" path="res://assets/faces/placeholder2.png" id="6_x48w0"]
-[ext_resource type="PackedScene" path="res://scenes/objects/ice_cube.tscn" id="8_oxbxt"]
-[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="9_hbrsj"]
+[ext_resource type="PackedScene" uid="uid://cv8ct654whpqf" path="res://scenes/objects/ice_cube.tscn" id="8_oxbxt"]
+[ext_resource type="PackedScene" uid="uid://d3bbckj3x7cqi" path="res://scenes/hud.tscn" id="9_hbrsj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gwwp"]
 size = Vector2(10, 10)
