@@ -3,21 +3,22 @@ extends CharacterBody2D
 @export var speed: float = 500.0
 @export var walk_speed : float = 200.0
 @export var light: PointLight2D
+@export var frozen: bool = false
 @export var visible_objects: Dictionary = {}
 var since_standing = 0.0
+var slider : HSlider = null;
 
 func get_elements():
 	return visible_objects.values()
 
 func _ready() -> void:
 	Global.player = self
-	var slider = get_tree().current_scene.get_node_or_null("HUD/SliderBox/HSlider")
+	slider = get_tree().current_scene.get_node_or_null("HUD/SliderBox/Panel/HSlider")
 	if slider:
 		slider.value_changed.connect(_on_slider_changed)
 		_on_slider_changed(slider.value)
 
 func _on_slider_changed(value: float) -> void:
-	var slider = get_tree().current_scene.get_node("HUD/SliderBox/HSlider")
 	var ratio = (slider.value - slider.min_value) / (slider.max_value - slider.min_value)
 	var cx = 51
 	var cy = 19
@@ -52,19 +53,23 @@ func _on_slider_changed(value: float) -> void:
 func get_input(_delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
 	var magnitude = direction.length()
+	
+	var elements = get_elements()
+	var is_sliding = Element_set.slides(elements)
+	
 	if direction.length() > 0:
 		since_standing += _delta
 		direction = direction.normalized()
-		if not Input.is_action_pressed("shift") and magnitude == 1:
+		if !Input.is_action_pressed("shift") and !is_sliding and magnitude == 1:
 			rotation = direction.angle()
 	else:
 		since_standing = 0
 	
-	var elements = get_elements()
-	if Element_set.slides(elements):
-		return
-	if Element_set.can_move(elements):
-		var standing_mod = min(1, since_standing / 0.15) 
+	var standing_mod = min(1, since_standing / 0.15) 
+	if is_sliding:
+		var multiplier = min(3 * walk_speed, velocity.length() * (1 + 0.005))
+		velocity = velocity.normalized() * multiplier
+	elif Element_set.can_move(elements):
 		if Input.is_action_pressed("shift"):
 			velocity = direction * walk_speed * standing_mod
 		else:
@@ -76,10 +81,6 @@ func _physics_process(_delta):
 	get_input(_delta)
 	move_and_slide()
 
-func update_light():
-	# Yeah, this is a hack
-	light.energy = Element_set.glows(get_elements())
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	update_light()
+	pass

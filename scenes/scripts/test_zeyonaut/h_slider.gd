@@ -1,5 +1,15 @@
 extends HSlider
 
+var menu_open = false
+
+func _input(event):
+	if event.is_action_pressed("ui_cancel"):  # Escape key (default in Godot)
+		toggle_menu()
+
+func toggle_menu():
+	menu_open = !menu_open
+	get_parent().get_parent().visible = menu_open
+
 func get_input():
 	var vision_delta = 0
 	if Input.is_action_pressed("IncreaseVision"):

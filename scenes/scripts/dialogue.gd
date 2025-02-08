@@ -12,6 +12,9 @@ var skip_current_text = false
 @onready var label = $Label
 @onready var portrait = $Portrait
 
+var time_since_skip: float = 0
+var skip_cooldown: float = 0.12
+
 func queue_text(sprite: String, new_text: String):
 	dialogue_queue.append([sprite, new_text])
 
@@ -41,8 +44,12 @@ func _process_text():
 	is_typing = false
 	skip_current_text = false
 
-func _unhandled_input(event):
-	if event.is_action_pressed("accept"):
+func _process(delta):
+	time_since_skip += delta
+	
+	if Input.is_action_pressed("accept") and time_since_skip > skip_cooldown:
+		time_since_skip = 0
+		
 		if is_typing:
 			skip_current_text = true
 		else:
@@ -51,3 +58,4 @@ func _unhandled_input(event):
 				get_tree().paused = false
 			else:
 				_process_text()
+	
