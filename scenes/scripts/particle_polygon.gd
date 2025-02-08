@@ -19,8 +19,12 @@ func _process(_delta: float) -> void:
 	self.rotation = coprogress * self.orientation_init + (1 - coprogress) * self.orientation_final
 	self.position = (1 - coprogress) * self.position_final
 
-func initialize(color: Color, lifespan: float, size: float, _range: float) -> void:
+func initialize(color: Color, arity: int, lifespan: float, size: float, _range: float) -> void:
 	var polygon: Polygon2D = get_node("Polygon2D")
+	var array = Array()
+	for i in range(arity):
+		array.push_back(Vector2(sin(i * 2 * PI / arity), -cos(i * 2 * PI / arity)))
+	polygon.polygon = array
 	polygon.color = color
 	self.scale = Vector2(size, size)
 	self.rotation = randf() * 2 * PI
