@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://dbd1syafx3mkx"]
+[gd_scene load_steps=8 format=4 uid="uid://dbd1syafx3mkx"]
 
 [ext_resource type="TileSet" uid="uid://d035mgrwol727" path="res://scenes/wall_tileset.tres" id="1_e7kqm"]
 [ext_resource type="PackedScene" uid="uid://cv8ct654whpqf" path="res://scenes/objects/ice_cube.tscn" id="2_sbojp"]
@@ -6,8 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://cbsyinmrhl3ll" path="res://scenes/misc/dialogue.tscn" id="3_ncdpi"]
 [ext_resource type="PackedScene" uid="uid://ddkfd11la5tb1" path="res://scenes/objects/weight.tscn" id="3_qj446"]
 [ext_resource type="PackedScene" uid="uid://d3bbckj3x7cqi" path="res://scenes/hud.tscn" id="4_72ls0"]
+[ext_resource type="PackedScene" uid="uid://bklsi754w04wr" path="res://scenes/misc/transition.tscn" id="7_it5nq"]
 
 [node name="ElementalTestLevel" type="Node2D"]
+
+[node name="Transition" parent="." instance=ExtResource("7_it5nq")]
 
 [node name="Floor" type="TileMapLayer" parent="."]
 z_index = -1

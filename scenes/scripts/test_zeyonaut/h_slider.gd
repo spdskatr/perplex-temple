@@ -1,6 +1,11 @@
 extends HSlider
 
 var menu_open = false
+@onready var player = Global.player
+
+func _ready() -> void:
+	value_changed.connect(func (value): player.on_slider_changed(self))
+	player.on_slider_changed(self)
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):  # Escape key (default in Godot)

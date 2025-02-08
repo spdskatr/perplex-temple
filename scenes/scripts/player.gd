@@ -5,20 +5,19 @@ extends CharacterBody2D
 @export var light: PointLight2D
 @export var frozen: bool = false
 @export var visible_objects: Dictionary = {}
+var checkpoint_pos: Vector2 = Vector2(0, 0)
 var since_standing = 0.0
-var slider : HSlider = null;
+
+@onready var transition = Global.transition
 
 func get_elements():
 	return visible_objects.values()
 
 func _ready() -> void:
+	checkpoint_pos = self.global_position
 	Global.player = self
-	slider = get_tree().current_scene.get_node_or_null("HUD/SliderBox/Panel/HSlider")
-	if slider:
-		slider.value_changed.connect(_on_slider_changed)
-		_on_slider_changed(slider.value)
 
-func _on_slider_changed(value: float) -> void:
+func on_slider_changed(slider) -> void:
 	var ratio = (slider.value - slider.min_value) / (slider.max_value - slider.min_value)
 	var cx = 51
 	var cy = 19
@@ -76,6 +75,13 @@ func get_input(_delta):
 			velocity = direction * speed * standing_mod
 	else:
 		velocity = Vector2(0, 0)
+	
+	if Input.is_action_pressed("seppuku"):
+		die()
+
+func die() -> void:
+	await transition.transit(Color(1, 0, 0), Color(1, 1, 1))
+	position = checkpoint_pos
 
 func _physics_process(_delta):
 	get_input(_delta)

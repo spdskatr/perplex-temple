@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://cpcyu2p5k0ejg"]
+[gd_scene load_steps=10 format=4 uid="uid://cpcyu2p5k0ejg"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_0.gd" id="1_h18cq"]
 [ext_resource type="TileSet" uid="uid://d035mgrwol727" path="res://scenes/wall_tileset.tres" id="1_yqdep"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b464nqjijksl2" path="res://scenes/objects/door.tscn" id="6_ek4ld"]
 [ext_resource type="PackedScene" uid="uid://plc656plpuek" path="res://scenes/objects/base_pad.tscn" id="7_kxqx3"]
 [ext_resource type="Texture2D" uid="uid://bbfal07mc8oso" path="res://assets/faces/placeholder2.png" id="8_b2pug"]
+[ext_resource type="PackedScene" uid="uid://bklsi754w04wr" path="res://scenes/misc/transition.tscn" id="9_x3c5k"]
 
 [node name="Level0" type="Node2D"]
 script = ExtResource("1_h18cq")
@@ -45,6 +46,8 @@ position = Vector2(106, 0)
 [node name="Sprite2D2" type="Sprite2D" parent="Dude"]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("8_b2pug")
+
+[node name="Transition" parent="." instance=ExtResource("9_x3c5k")]
 
 [connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]
 [connection signal="body_entered" from="Dude" to="." method="_on_dude_body_entered"]

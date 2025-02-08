@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dw7nxgpqiapnk"]
+[gd_scene load_steps=6 format=3 uid="uid://dw7nxgpqiapnk"]
 
 [ext_resource type="PackedScene" uid="uid://c7861vcnmeslg" path="res://scenes/objects/player.tscn" id="1_fyphb"]
 [ext_resource type="TileSet" uid="uid://d035mgrwol727" path="res://scenes/wall_tileset.tres" id="1_tb0hx"]
 [ext_resource type="PackedScene" uid="uid://cbsyinmrhl3ll" path="res://scenes/misc/dialogue.tscn" id="2_qi4ja"]
 [ext_resource type="PackedScene" uid="uid://d3bbckj3x7cqi" path="res://scenes/hud.tscn" id="4_rfh2e"]
+[ext_resource type="PackedScene" uid="uid://bklsi754w04wr" path="res://scenes/misc/transition.tscn" id="5_fuhs3"]
 
 [node name="BaseLevel" type="Node2D"]
 
@@ -23,3 +24,5 @@ tile_set = ExtResource("1_tb0hx")
 [node name="Dialogue" parent="." instance=ExtResource("2_qi4ja")]
 
 [node name="HUD" parent="." instance=ExtResource("4_rfh2e")]
+
+[node name="Transition" parent="." instance=ExtResource("5_fuhs3")]
