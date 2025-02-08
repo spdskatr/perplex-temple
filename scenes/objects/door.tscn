@@ -6,5 +6,4 @@ size = Vector2(10, 10)
 [node name="Door" type="Area2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(838, 181)
 shape = SubResource("RectangleShape2D_8gwwp")
