@@ -23,6 +23,8 @@ fill_from = Vector2(0.5, 0.5)
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_p66es")
 
+[node name="Transition" parent="." instance=ExtResource("7_knd4c")]
+
 [node name="Floor" type="TileMapLayer" parent="."]
 z_index = -1
 scale = Vector2(2.5, 2.5)
@@ -61,7 +63,5 @@ element = 5
 [node name="Sprite2D" type="Sprite2D" parent="ElementalObject"]
 scale = Vector2(0.565081, 0.565081)
 texture = SubResource("GradientTexture2D_fycjw")
-
-[node name="Transition" parent="." instance=ExtResource("7_knd4c")]
 
 [connection signal="body_entered" from="Room1/Area2D" to="." method="_on_area_2d_body_entered"]
