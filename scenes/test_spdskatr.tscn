@@ -1,12 +1,13 @@
-[gd_scene load_steps=9 format=4 uid="uid://bo51v4dymvm1t"]
+[gd_scene load_steps=10 format=4 uid="uid://bo51v4dymvm1t"]
 
 [ext_resource type="Script" path="res://scenes/scripts/test_spdskatr/level.gd" id="1_12a1y"]
 [ext_resource type="PackedScene" uid="uid://c7861vcnmeslg" path="res://scenes/objects/player.tscn" id="1_ll32n"]
 [ext_resource type="PackedScene" uid="uid://dulabxngl3sch" path="res://scenes/objects/base_wall.tscn" id="2_8lnho"]
-[ext_resource type="TileSet" uid="uid://d035mgrwol727" path="res://scenes/wall_tileset.tres" id="2_44ybx"]
+[ext_resource type="TileSet" uid="uid://dg1ffbnh3fw3r" path="res://scenes/wall_tileset.tres" id="2_44ybx"]
 [ext_resource type="PackedScene" uid="uid://plc656plpuek" path="res://scenes/objects/base_pad.tscn" id="3_0vvmf"]
 [ext_resource type="Script" path="res://scenes/scripts/dialogue.gd" id="7_41itj"]
 [ext_resource type="FontFile" uid="uid://bqi64atqmb4qq" path="res://assets/fonts/Lexend-Regular.ttf" id="8_mwvnj"]
+[ext_resource type="PackedScene" uid="uid://g1npvyb4ygmy" path="res://scenes/hud.tscn" id="8_qcnww"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gwwp"]
 size = Vector2(10, 10)
@@ -87,6 +88,8 @@ offset_bottom = 180.0
 theme_override_fonts/font = ExtResource("8_mwvnj")
 theme_override_font_sizes/font_size = 32
 autowrap_mode = 2
+
+[node name="HUD" parent="." instance=ExtResource("8_qcnww")]
 
 [connection signal="body_entered" from="Pad" to="." method="_on_pad_body_entered"]
 [connection signal="body_entered" from="Door1" to="." method="_on_door_1_body_entered"]
