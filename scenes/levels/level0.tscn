@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=4 uid="uid://cpcyu2p5k0ejg"]
+[gd_scene load_steps=6 format=4 uid="uid://cpcyu2p5k0ejg"]
 
+[ext_resource type="Script" path="res://scenes/levels/level_0.gd" id="1_h18cq"]
 [ext_resource type="TileSet" uid="uid://d035mgrwol727" path="res://scenes/wall_tileset.tres" id="1_yqdep"]
 [ext_resource type="PackedScene" uid="uid://c7861vcnmeslg" path="res://scenes/objects/player.tscn" id="2_fguo4"]
 [ext_resource type="PackedScene" uid="uid://cbsyinmrhl3ll" path="res://scenes/misc/dialogue.tscn" id="3_kgbqe"]
 [ext_resource type="PackedScene" uid="uid://d3bbckj3x7cqi" path="res://scenes/hud.tscn" id="4_ka3fi"]
 
 [node name="Level0" type="Node2D"]
+script = ExtResource("1_h18cq")
 
 [node name="Walls" type="TileMapLayer" parent="."]
 z_index = 1
