@@ -16,6 +16,7 @@ size = Vector2(30, 30)
 script = ExtResource("1_c85sp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+use_parent_material = true
 rotation = 1.5708
 texture = SubResource("GradientTexture1D_41dhq")
 region_enabled = true
