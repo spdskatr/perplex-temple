@@ -19,20 +19,24 @@ func _on_pad_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.
 
 
+func change_scene_to_main():
+	get_tree().change_scene_to_file("res://scenes/main.tscn")
+
+
 func _on_door_1_body_entered(body: Node2D) -> void:
-	if body == player:
+	if body is CharacterBody2D:
 		# Teleport player to other side of door i guess
 		player.position = Vector2(180.0, 240.0)
 	pass # Replace with function body.
 
 
 func _on_door_2_body_entered(body: Node2D) -> void:
-	if body == player:
+	if body is CharacterBody2D:
 		player.position = Vector2(220.0, 20.0)
 	pass # Replace with function body.
 
 
 func _on_door_3_body_entered(body: Node2D) -> void:
-	if body == player:
-		get_tree().change_scene_to_file("res://scenes/main.tscn")
+	if body is CharacterBody2D:
+		call_deferred("change_scene_to_main")
 	pass # Replace with function body.
