@@ -10,7 +10,7 @@ gradient = SubResource("Gradient_32e06")
 width = 40
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pe3me"]
-size = Vector2(40, 40)
+size = Vector2(35, 35)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_c85sp")

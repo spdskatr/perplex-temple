@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var element: Element.TYPE
-@export var speed: float = 1000.0
+@export var speed: float = 500.0
 @export var element_node: Element = Element.new()
 
 func get_input():
