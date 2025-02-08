@@ -5,6 +5,7 @@
 [ext_resource type="Script" path="res://scenes/scripts/test_zeyonaut/h_slider.gd" id="2_o4r6h"]
 [ext_resource type="Script" path="res://hud/on_ice.gd" id="4_8dus3"]
 [ext_resource type="Script" path="res://scenes/on_weight.gd" id="5_4x68v"]
+[ext_resource type="FontFile" uid="uid://bqi64atqmb4qq" path="res://assets/fonts/Lexend-Regular.ttf" id="4_2m57d"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ntdl8"]
 shader = ExtResource("1_0t4cp")
@@ -24,7 +25,6 @@ color = Color(0, 0.846466, 0.767997, 1)
 metadata/_edit_lock_ = true
 
 [node name="SliderBox" type="Control" parent="."]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1000.0
@@ -32,16 +32,16 @@ offset_bottom = 100.0
 
 [node name="Panel" type="Panel" parent="SliderBox"]
 layout_mode = 0
-offset_right = 1000.0
+offset_right = 1200.0
 offset_bottom = 100.0
 
 [node name="HSlider" type="HSlider" parent="SliderBox/Panel"]
 process_mode = 3
 layout_mode = 0
-offset_left = 40.0
-offset_top = 40.0
-offset_right = 240.0
-offset_bottom = 56.0
+offset_left = 167.0
+offset_top = 70.0
+offset_right = 1012.0
+offset_bottom = 86.0
 focus_mode = 0
 value = 100.0
 script = ExtResource("2_o4r6h")
@@ -63,3 +63,33 @@ script = ExtResource("5_4x68v")
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0.374139, 0.374139, 0.374139, 1)
+
+[node name="Label" type="Label" parent="SliderBox/Panel"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 65.0
+offset_right = 134.0
+offset_bottom = 90.0
+theme_override_fonts/font = ExtResource("4_2m57d")
+theme_override_font_sizes/font_size = 20
+text = "Close eyes"
+
+[node name="Label" type="Label" parent="SliderBox/Panel/Label"]
+layout_mode = 0
+offset_left = -2.0
+offset_top = -45.0
+offset_right = 100.0
+offset_bottom = -20.0
+theme_override_fonts/font = ExtResource("4_2m57d")
+theme_override_font_sizes/font_size = 20
+text = "the options menu"
+
+[node name="Label2" type="Label" parent="SliderBox/Panel"]
+layout_mode = 0
+offset_left = 1049.0
+offset_top = 65.0
+offset_right = 1152.0
+offset_bottom = 90.0
+theme_override_fonts/font = ExtResource("4_2m57d")
+theme_override_font_sizes/font_size = 20
+text = "Close ears"
