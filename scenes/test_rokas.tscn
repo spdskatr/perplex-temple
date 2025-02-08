@@ -6,8 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://plc656plpuek" path="res://scenes/objects/base_pad.tscn" id="3_0vvmf"]
 [ext_resource type="Texture2D" uid="uid://bekgnb1j07inf" path="res://assets/gate.png" id="3_tb3rr"]
 [ext_resource type="Texture2D" uid="uid://bfxppuxqlj1b6" path="res://assets/wall tileset.png" id="5_ec8v4"]
-[ext_resource type="Script" path="res://scenes/scripts/dialogue.gd" id="7_41itj"]
-[ext_resource type="PackedScene" uid="uid://g1npvyb4ygmy" path="res://scenes/hud.tscn" id="8_wp5xf"]
+[ext_resource type="PackedScene" uid="uid://cbsyinmrhl3ll" path="res://scenes/misc/dialogue.tscn" id="8_iiymy"]
+[ext_resource type="PackedScene" uid="uid://d3bbckj3x7cqi" path="res://scenes/hud.tscn" id="8_wp5xf"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hvtsb"]
 polygon = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
@@ -311,26 +311,12 @@ shape = SubResource("RectangleShape2D_8gwwp")
 position = Vector2(838, 181)
 shape = SubResource("RectangleShape2D_8gwwp")
 
-[node name="UILayer" type="CanvasLayer" parent="."]
-
-[node name="Panel" type="Panel" parent="UILayer"]
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -200.0
-offset_right = 1000.0
-grow_vertical = 0
-script = ExtResource("7_41itj")
-
-[node name="Label" type="Label" parent="UILayer/Panel"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
-
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0, 0, 0, 1)
 
 [node name="HUD" parent="." instance=ExtResource("8_wp5xf")]
+
+[node name="Dialogue" parent="." instance=ExtResource("8_iiymy")]
 
 [connection signal="body_entered" from="Pad" to="." method="_on_pad_body_entered"]
 [connection signal="body_entered" from="Door1" to="." method="_on_door_1_body_entered"]

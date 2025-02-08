@@ -1,13 +1,12 @@
-[gd_scene load_steps=10 format=4 uid="uid://bo51v4dymvm1t"]
+[gd_scene load_steps=9 format=4 uid="uid://bo51v4dymvm1t"]
 
 [ext_resource type="Script" path="res://scenes/scripts/test_spdskatr/level.gd" id="1_12a1y"]
 [ext_resource type="PackedScene" uid="uid://c7861vcnmeslg" path="res://scenes/objects/player.tscn" id="1_ll32n"]
 [ext_resource type="PackedScene" uid="uid://dulabxngl3sch" path="res://scenes/objects/base_wall.tscn" id="2_8lnho"]
-[ext_resource type="TileSet" uid="uid://dg1ffbnh3fw3r" path="res://scenes/wall_tileset.tres" id="2_44ybx"]
+[ext_resource type="TileSet" uid="uid://d035mgrwol727" path="res://scenes/wall_tileset.tres" id="2_44ybx"]
 [ext_resource type="PackedScene" uid="uid://plc656plpuek" path="res://scenes/objects/base_pad.tscn" id="3_0vvmf"]
-[ext_resource type="Script" path="res://scenes/scripts/dialogue.gd" id="7_41itj"]
-[ext_resource type="FontFile" uid="uid://bqi64atqmb4qq" path="res://assets/fonts/Lexend-Regular.ttf" id="8_mwvnj"]
-[ext_resource type="PackedScene" uid="uid://g1npvyb4ygmy" path="res://scenes/hud.tscn" id="8_qcnww"]
+[ext_resource type="PackedScene" uid="uid://cbsyinmrhl3ll" path="res://scenes/misc/dialogue.tscn" id="6_tsf0u"]
+[ext_resource type="Texture2D" uid="uid://bbfal07mc8oso" path="res://assets/faces/placeholder2.png" id="6_x48w0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gwwp"]
 size = Vector2(10, 10)
@@ -44,6 +43,13 @@ scale = Vector2(1, 10)
 [node name="Pad" parent="." instance=ExtResource("3_0vvmf")]
 position = Vector2(611, 164)
 
+[node name="Pad2" parent="." instance=ExtResource("3_0vvmf")]
+position = Vector2(407, 48)
+
+[node name="Sprite2D2" type="Sprite2D" parent="Pad2"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("6_x48w0")
+
 [node name="Door1" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Door1"]
@@ -62,36 +68,10 @@ shape = SubResource("RectangleShape2D_8gwwp")
 position = Vector2(838, 181)
 shape = SubResource("RectangleShape2D_8gwwp")
 
-[node name="UILayer" type="CanvasLayer" parent="."]
-process_mode = 3
-
-[node name="Panel" type="Panel" parent="UILayer"]
-visible = false
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -500.0
-offset_top = -200.0
-offset_right = 500.0
-grow_horizontal = 2
-grow_vertical = 0
-script = ExtResource("7_41itj")
-
-[node name="Label" type="Label" parent="UILayer/Panel"]
-layout_mode = 0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 980.0
-offset_bottom = 180.0
-theme_override_fonts/font = ExtResource("8_mwvnj")
-theme_override_font_sizes/font_size = 32
-autowrap_mode = 2
-
-[node name="HUD" parent="." instance=ExtResource("8_qcnww")]
+[node name="Dialogue" parent="." instance=ExtResource("6_tsf0u")]
 
 [connection signal="body_entered" from="Pad" to="." method="_on_pad_body_entered"]
+[connection signal="body_entered" from="Pad2" to="." method="_on_pad_2_body_entered"]
 [connection signal="body_entered" from="Door1" to="." method="_on_door_1_body_entered"]
 [connection signal="body_entered" from="Door2" to="." method="_on_door_2_body_entered"]
 [connection signal="body_entered" from="Door3" to="." method="_on_door_3_body_entered"]

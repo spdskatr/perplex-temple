@@ -4,16 +4,21 @@ extends Panel
 var dialogue_queue = []
 var is_typing = false
 var skip_current_text = false
+@onready var sprites = {
+	"player": preload("res://assets/faces/placeholder.png"), 
+	"npc": preload("res://assets/faces/placeholder2.png")
+}
 
-@onready var label = $Label  # Adjust this path if needed
+@onready var label = $Label
+@onready var portrait = $Portrait
 
-
-func show_text(new_text: String):
+func queue_text(sprite: String, new_text: String):
 	var first_dialogue = dialogue_queue.size() == 0
-	dialogue_queue.append(new_text)
-	
-	# Start text box
-	if first_dialogue and not is_typing:
+	dialogue_queue.append([sprite, new_text])
+
+func start_text():
+	if not visible:
+		# Start text box
 		show()
 		get_tree().paused = true
 		_process_text()
@@ -22,8 +27,11 @@ func _process_text():
 	if dialogue_queue.is_empty():
 		return
 	
-	var text_to_display = dialogue_queue.pop_front()
+	var textbox = dialogue_queue.pop_front()
+	var sprite = sprites[textbox[0]]
+	var text_to_display = textbox[1]
 	is_typing = true
+	portrait.texture = sprite
 	label.text = ""
 	
 	for c in text_to_display:

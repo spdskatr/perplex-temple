@@ -6,7 +6,7 @@ func _ready() -> void:
 	slider.value_changed.connect(_on_slider_changed)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 func _on_slider_changed(value: float) -> void:
