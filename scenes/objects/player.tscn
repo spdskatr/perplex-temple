@@ -50,8 +50,6 @@ polygon = PackedVector2Array(51, 4, 51, 19, 51, 34, 36, 34, 36, 19, 36, 4)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("light")]
 light_mask = 0
-collision_layer = 2
-collision_mask = 2
 script = ExtResource("1_c85sp")
 light = NodePath("PointLight2D")
 

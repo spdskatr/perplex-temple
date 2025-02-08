@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=4 uid="uid://bo51v4dymvm1t"]
+[gd_scene load_steps=11 format=4 uid="uid://bo51v4dymvm1t"]
 
 [ext_resource type="Script" path="res://scenes/scripts/test_spdskatr/level.gd" id="1_12a1y"]
 [ext_resource type="PackedScene" uid="uid://c7861vcnmeslg" path="res://scenes/objects/player.tscn" id="1_ll32n"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://plc656plpuek" path="res://scenes/objects/base_pad.tscn" id="3_0vvmf"]
 [ext_resource type="PackedScene" uid="uid://cbsyinmrhl3ll" path="res://scenes/misc/dialogue.tscn" id="6_tsf0u"]
 [ext_resource type="Texture2D" uid="uid://bbfal07mc8oso" path="res://assets/faces/placeholder2.png" id="6_x48w0"]
+[ext_resource type="PackedScene" uid="uid://cv8ct654whpqf" path="res://scenes/objects/ice_cube.tscn" id="8_oxbxt"]
+[ext_resource type="PackedScene" uid="uid://d3bbckj3x7cqi" path="res://scenes/hud.tscn" id="9_hbrsj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gwwp"]
 size = Vector2(10, 10)
@@ -69,6 +71,10 @@ position = Vector2(838, 181)
 shape = SubResource("RectangleShape2D_8gwwp")
 
 [node name="Dialogue" parent="." instance=ExtResource("6_tsf0u")]
+
+[node name="IceCube" parent="." instance=ExtResource("8_oxbxt")]
+
+[node name="HUD" parent="." instance=ExtResource("9_hbrsj")]
 
 [connection signal="body_entered" from="Pad" to="." method="_on_pad_body_entered"]
 [connection signal="body_entered" from="Pad2" to="." method="_on_pad_2_body_entered"]

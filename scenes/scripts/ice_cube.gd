@@ -12,6 +12,7 @@ func _process(delta: float) -> void:
 	var heart = get_node_or_null("../Player/Heart")
 	if player:
 		$RayCast2D.target_position = $RayCast2D.to_local(player.global_position)
+		$RayCast2D.add_exception(player)
 		var t = $RayCast2D.get_collider()
 		if t == heart:
 			print("hit!")
