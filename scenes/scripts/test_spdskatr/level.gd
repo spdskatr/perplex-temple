@@ -15,7 +15,8 @@ func _process(_delta: float) -> void:
 
 func _on_pad_body_entered(body: Node2D) -> void:
 	# You can do some game logic here idk
-	textbox.show_text("You stepped on the pad!\nYou fool! You moron!")
+	textbox.queue_text("player", "I stepped on the pad!")
+	textbox.start_text()
 	print(body)
 	pass # Replace with function body.
 
@@ -40,4 +41,12 @@ func _on_door_2_body_entered(body: Node2D) -> void:
 func _on_door_3_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		call_deferred("change_scene_to_main")
+	pass # Replace with function body.
+
+
+func _on_pad_2_body_entered(body: Node2D) -> void:
+	textbox.queue_text("player", "HOLY FUCKING SHIT\nIS THAT...")
+	textbox.queue_text("player", "IS THAT GOT DAMN CIRNO FROM TOUHOU PROJECT HOLY\n HOLY CRAP")
+	textbox.queue_text("npc", "kuba is a nerd")
+	textbox.start_text()
 	pass # Replace with function body.

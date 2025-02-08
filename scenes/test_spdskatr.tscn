@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/scripts/dialogue.gd" id="7_41itj"]
 [ext_resource type="FontFile" uid="uid://bqi64atqmb4qq" path="res://assets/fonts/Lexend-Regular.ttf" id="8_mwvnj"]
 [ext_resource type="PackedScene" uid="uid://g1npvyb4ygmy" path="res://scenes/hud.tscn" id="8_qcnww"]
+[ext_resource type="Texture2D" uid="uid://d1ijrt0c7yt4a" path="res://assets/faces/placeholder.png" id="8_y3b47"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gwwp"]
 size = Vector2(10, 10)
@@ -81,7 +82,7 @@ script = ExtResource("7_41itj")
 
 [node name="Label" type="Label" parent="UILayer/Panel"]
 layout_mode = 0
-offset_left = 20.0
+offset_left = 200.0
 offset_top = 20.0
 offset_right = 980.0
 offset_bottom = 180.0
@@ -90,8 +91,19 @@ theme_override_font_sizes/font_size = 32
 autowrap_mode = 2
 
 [node name="HUD" parent="." instance=ExtResource("8_qcnww")]
+[node name="Portrait" type="TextureRect" parent="UILayer/Panel"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 180.0
+offset_bottom = 180.0
+texture = ExtResource("8_y3b47")
+
+[node name="Pad2" parent="." instance=ExtResource("3_0vvmf")]
+position = Vector2(407, 48)
 
 [connection signal="body_entered" from="Pad" to="." method="_on_pad_body_entered"]
 [connection signal="body_entered" from="Door1" to="." method="_on_door_1_body_entered"]
 [connection signal="body_entered" from="Door2" to="." method="_on_door_2_body_entered"]
 [connection signal="body_entered" from="Door3" to="." method="_on_door_3_body_entered"]
+[connection signal="body_entered" from="Pad2" to="." method="_on_pad_2_body_entered"]
