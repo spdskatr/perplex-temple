@@ -1,12 +1,12 @@
 class_name Element
 extends Node
 
-enum TYPE {WOOD, METAL}
+enum TYPE {DEFAULT, STONE}
 
-func floats(type) -> bool:
+func can_move(type) -> bool:
 	match type:
-		TYPE.WOOD:
+		TYPE.DEFAULT:
 			return true
-		TYPE.METAL:
+		TYPE.STONE:
 			return false
-	return false
+	return true
