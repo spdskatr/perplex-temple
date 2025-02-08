@@ -73,6 +73,7 @@ shape = SubResource("RectangleShape2D_8gwwp")
 [node name="Dialogue" parent="." instance=ExtResource("6_tsf0u")]
 
 [node name="IceCube" parent="." instance=ExtResource("8_oxbxt")]
+position = Vector2(-188, 224)
 
 [node name="HUD" parent="." instance=ExtResource("9_hbrsj")]
 
