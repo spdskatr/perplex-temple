@@ -7,6 +7,7 @@ extends CharacterBody2D
 @export var visible_objects: Dictionary = {}
 var checkpoint_pos: Vector2 = Vector2(0, 0)
 var since_standing = 0.0
+@export var ratio = 1.
 
 @onready var transition = Global.transition
 
@@ -18,7 +19,7 @@ func _ready() -> void:
 	Global.player = self
 
 func on_slider_changed(slider) -> void:
-	var ratio = (slider.value - slider.min_value) / (slider.max_value - slider.min_value)
+	ratio = (slider.value - slider.min_value) / (slider.max_value - slider.min_value)
 	var cx = 51
 	var cy = 19
 	var rad = 15
