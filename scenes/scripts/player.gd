@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var speed: float = 500.0
 @export var walk_speed : float = 200.0
 @export var light: PointLight2D
+@export var frozen: bool = false
 @export var visible_objects: Dictionary = {}
 var since_standing = 0.0
 
@@ -80,10 +81,6 @@ func _physics_process(_delta):
 	get_input(_delta)
 	move_and_slide()
 
-func update_light():
-	# Yeah, this is a hack
-	light.energy = Element_set.glows(get_elements())
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	update_light()
+	pass
