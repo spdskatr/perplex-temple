@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var element: Element.TYPE
+@export var elements: Array[Element.TYPE] = []
 @export var speed: float = 500.0
 @export var light: PointLight2D
 
@@ -12,7 +12,7 @@ func get_input():
 		if not Input.is_action_pressed("shift") and magnitude == 1:
 			rotation = direction.angle()
 	
-	if Element.can_move(element):
+	if Element_set.can_move(elements):
 		velocity = direction * speed
 	else:
 		velocity = Vector2(0, 0)
@@ -23,7 +23,7 @@ func _physics_process(_delta):
 
 func update_light():
 	# Yeah, this is a hack
-	light.energy = Element.glows(element)
+	light.energy = Element_set.glows(elements)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

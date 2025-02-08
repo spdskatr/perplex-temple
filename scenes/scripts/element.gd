@@ -1,5 +1,4 @@
 class_name Element
-extends Node
 
 enum TYPE {DEFAULT, STONE, LIGHT, WOOD, FIRE, ICE}
 
