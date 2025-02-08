@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7861vcnmeslg"]
+[gd_scene load_steps=7 format=3 uid="uid://c7861vcnmeslg"]
 
 [ext_resource type="Script" path="res://scenes/scripts/player.gd" id="1_c85sp"]
 
@@ -12,8 +12,15 @@ width = 30
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pe3me"]
 size = Vector2(30, 30)
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="Gradient" id="Gradient_vsje4"]
+offsets = PackedFloat32Array(0, 0.0421687)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_g1gyy"]
+gradient = SubResource("Gradient_vsje4")
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("light")]
 script = ExtResource("1_c85sp")
+light = NodePath("PointLight2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 use_parent_material = true
@@ -27,3 +34,8 @@ shape = SubResource("RectangleShape2D_pe3me")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(2000, 0)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+scale = Vector2(3, 750)
+shadow_enabled = true
+texture = SubResource("GradientTexture1D_g1gyy")
