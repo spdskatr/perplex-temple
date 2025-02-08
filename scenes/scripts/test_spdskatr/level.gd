@@ -1,7 +1,7 @@
 extends Node2D
 
 @onready var player : CharacterBody2D = get_node("Player")
-@onready var textbox : Panel = get_node("UILayer/Panel")
+@onready var textbox : Panel = get_node("Dialogue/Panel")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
