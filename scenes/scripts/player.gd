@@ -3,7 +3,9 @@ extends CharacterBody2D
 @export var elements: Array[Element.TYPE] = []
 @export var speed: float = 500.0
 @export var walk_speed : float = 200.0
+@export var frozen: bool = false
 @export var light: PointLight2D
+var since_standing = 0.0
 
 func _ready() -> void:
 	var slider = get_tree().current_scene.get_node_or_null("HUD/SliderBox/HSlider")
@@ -34,24 +36,28 @@ func _on_slider_changed(value: float) -> void:
 		$EyeArea/Occlude.occluder.polygon[3] = Vector2(cx - rad, cy + rad)
 		$EyeArea/Occlude.occluder.polygon[5] = Vector2(cx - rad, cy - rad)
 
-func get_input():
+func get_input(_delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
 	var magnitude = direction.length()
 	if direction.length() > 0:
+		since_standing += _delta
 		direction = direction.normalized()
 		if not Input.is_action_pressed("shift") and magnitude == 1:
 			rotation = direction.angle()
+	else:
+		since_standing = 0
 	
-	if Element_set.can_move(elements):
+	if not frozen and Element_set.can_move(elements):
+		var standing_mod = min(1, since_standing / 0.15) 
 		if Input.is_action_pressed("shift"):
-			velocity = direction * walk_speed
+			velocity = direction * walk_speed * standing_mod
 		else:
-			velocity = direction * speed
+			velocity = direction * speed * standing_mod
 	else:
 		velocity = Vector2(0, 0)
 
 func _physics_process(_delta):
-	get_input()
+	get_input(_delta)
 	move_and_slide()
 
 func update_light():

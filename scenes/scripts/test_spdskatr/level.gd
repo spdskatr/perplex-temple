@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var player : CharacterBody2D = get_node("Player")
+@onready var player : CharacterBody2D = get_node("Level/Player")
 @onready var textbox : Panel = get_node("Dialogue/Panel")
 
 # Called when the node enters the scene tree for the first time.
@@ -18,7 +18,15 @@ func _on_pad_body_entered(body: Node2D) -> void:
 	textbox.queue_text("player", "I stepped on the pad!")
 	textbox.start_text()
 	print(body)
-	pass # Replace with function body.
+
+
+func with_blink(callback):
+	var blinking = func():
+		player.frozen = true
+		await $Level/Transition.transit()
+		callback.call()
+		player.frozen = false
+	return blinking
 
 
 func change_scene_to_main():
@@ -28,19 +36,19 @@ func change_scene_to_main():
 func _on_door_1_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		# Teleport player to other side of door i guess
-		player.position = Vector2(180.0, 240.0)
+		with_blink(func(): player.position = Vector2(180.0, 240.0)).call_deferred()
 	pass # Replace with function body.
 
 
 func _on_door_2_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
-		player.position = Vector2(220.0, 20.0)
+		with_blink(func(): player.position = Vector2(220.0, 20.0)).call_deferred()
 	pass # Replace with function body.
 
 
 func _on_door_3_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
-		call_deferred("change_scene_to_main")
+		with_blink(change_scene_to_main).call_deferred()
 	pass # Replace with function body.
 
 
