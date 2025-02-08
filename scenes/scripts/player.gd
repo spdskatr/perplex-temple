@@ -52,19 +52,23 @@ func _on_slider_changed(value: float) -> void:
 func get_input(_delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
 	var magnitude = direction.length()
+	
+	var elements = get_elements()
+	var is_sliding = Element_set.slides(elements)
+	
 	if direction.length() > 0:
 		since_standing += _delta
 		direction = direction.normalized()
-		if not Input.is_action_pressed("shift") and magnitude == 1:
+		if !Input.is_action_pressed("shift") and !is_sliding and magnitude == 1:
 			rotation = direction.angle()
 	else:
 		since_standing = 0
 	
-	var elements = get_elements()
-	if Element_set.slides(elements):
-		return
-	if Element_set.can_move(elements):
-		var standing_mod = min(1, since_standing / 0.15) 
+	var standing_mod = min(1, since_standing / 0.15) 
+	if is_sliding:
+		var multiplier = min(3 * walk_speed, velocity.length() * (1 + 0.005))
+		velocity = velocity.normalized() * multiplier
+	elif Element_set.can_move(elements):
 		if Input.is_action_pressed("shift"):
 			velocity = direction * walk_speed * standing_mod
 		else:
