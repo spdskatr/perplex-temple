@@ -12,9 +12,9 @@ func get_elements():
 
 func _ready() -> void:
 	var slider = get_tree().current_scene.get_node_or_null("HUD/SliderBox/HSlider")
-	print("test", slider)
 	if slider:
 		slider.value_changed.connect(_on_slider_changed)
+		_on_slider_changed(slider.value)
 
 func _on_slider_changed(value: float) -> void:
 	var slider = get_tree().current_scene.get_node("HUD/SliderBox/HSlider")
