@@ -37,5 +37,6 @@ target_position = Vector2(2000, 0)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 scale = Vector2(3, 750)
+energy = 0.0
 shadow_enabled = true
 texture = SubResource("GradientTexture1D_g1gyy")
