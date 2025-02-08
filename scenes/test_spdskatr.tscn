@@ -267,20 +267,30 @@ position = Vector2(838, 181)
 shape = SubResource("RectangleShape2D_8gwwp")
 
 [node name="UILayer" type="CanvasLayer" parent="."]
+process_mode = 3
 
 [node name="Panel" type="Panel" parent="UILayer"]
-anchors_preset = 2
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
 anchor_top = 1.0
+anchor_right = 0.5
 anchor_bottom = 1.0
+offset_left = -500.0
 offset_top = -200.0
-offset_right = 1000.0
+offset_right = 500.0
+grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("7_41itj")
 
 [node name="Label" type="Label" parent="UILayer/Panel"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 980.0
+offset_bottom = 180.0
+theme_override_font_sizes/font_size = 32
+autowrap_mode = 2
 
 [connection signal="body_entered" from="Pad" to="." method="_on_pad_body_entered"]
 [connection signal="body_entered" from="Door1" to="." method="_on_door_1_body_entered"]
