@@ -7,10 +7,10 @@ colors = PackedColorArray(0.576918, 0.383349, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_41dhq"]
 gradient = SubResource("Gradient_32e06")
-width = 40
+width = 30
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pe3me"]
-size = Vector2(35, 35)
+size = Vector2(30, 30)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_c85sp")
@@ -19,7 +19,7 @@ script = ExtResource("1_c85sp")
 rotation = 1.5708
 texture = SubResource("GradientTexture1D_41dhq")
 region_enabled = true
-region_rect = Rect2(0, 0, 40, 40)
+region_rect = Rect2(0, 0, 30, 30)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_pe3me")
