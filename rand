@@ -1,0 +1,1 @@
+cat /dev/random | head -c 32 | cowsay
