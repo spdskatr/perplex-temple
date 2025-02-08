@@ -11,3 +11,9 @@ static func glows(elements) -> bool:
 		if Element.glows(el):
 			return true
 	return false
+
+static func slides(elements) -> bool:
+	for el in elements:
+		if Element.slides(el):
+			return true
+	return false
