@@ -1,6 +1,6 @@
 extends Panel
 
-@export var text_speed: float = 0.05  # Speed of text appearing
+@export var text_speed: float = 0.02  # Speed of text appearing
 var dialogue_queue = []
 var is_typing = false
 var skip_current_text = false
@@ -15,11 +15,11 @@ var skip_current_text = false
 func queue_text(sprite: String, new_text: String):
 	dialogue_queue.append([sprite, new_text])
 
-func start_text():
+func start_text(pause_game = true):
 	if not visible:
 		# Start text box
 		show()
-		get_tree().paused = true
+		get_tree().paused = pause_game
 		_process_text()
 
 func _process_text():

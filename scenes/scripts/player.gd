@@ -25,16 +25,26 @@ func _on_slider_changed(value: float) -> void:
 	
 	$EarLight.energy = (1 - ratio) * 0.25
 	
-	$EyeArea/Occlude.occluder.polygon[0] = Vector2(cx + dx, cy - dy)
-	$EyeArea/Occlude.occluder.polygon[2] = Vector2(cx + dx, cy + dy)
-	$EyeArea/Collision.polygon[0] = Vector2(cx + dx, cy - dy)
-	$EyeArea/Collision.polygon[2] = Vector2(cx + dx, cy + dy)
-	if (ratio > 0.3):
-		$EyeArea/Occlude.occluder.polygon[3] = $EyeArea/Occlude.occluder.polygon[4]
-		$EyeArea/Occlude.occluder.polygon[5] = $EyeArea/Occlude.occluder.polygon[4]
+	var occluder_poly = $EyeArea/Occlude.occluder.polygon.duplicate()
+	var collision_poly = $EyeArea/Collision.polygon.duplicate()
+	
+	occluder_poly[0] = Vector2(cx + dx, cy - dy)
+	occluder_poly[2] = Vector2(cx + dx, cy + dy)
+	collision_poly[0] = Vector2(cx + dx, cy - dy)
+	collision_poly[2] = Vector2(cx + dx, cy + dy)
+	if (ratio > 0.6):
+		occluder_poly[3] = occluder_poly[4]
+		occluder_poly[5] = occluder_poly[4]
+		collision_poly[3] = collision_poly[4]
+		collision_poly[5] = collision_poly[4]
 	else:
-		$EyeArea/Occlude.occluder.polygon[3] = Vector2(cx - rad, cy + rad)
-		$EyeArea/Occlude.occluder.polygon[5] = Vector2(cx - rad, cy - rad)
+		occluder_poly[3] = Vector2(cx - rad, cy + rad)
+		occluder_poly[5] = Vector2(cx - rad, cy - rad)
+		collision_poly[3] = Vector2(cx - rad, cy + rad)
+		collision_poly[5] = Vector2(cx - rad, cy - rad)
+		
+	$EyeArea/Occlude.occluder.polygon = occluder_poly
+	$EyeArea/Collision.polygon = collision_poly
 
 func get_input(_delta):
 	var direction = Input.get_vector("left", "right", "up", "down")
