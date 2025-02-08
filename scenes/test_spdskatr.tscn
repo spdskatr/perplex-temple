@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bo51v4dymvm1t"]
+[gd_scene load_steps=13 format=4 uid="uid://bo51v4dymvm1t"]
 
 [ext_resource type="Script" path="res://scenes/scripts/test_spdskatr/level.gd" id="1_12a1y"]
 [ext_resource type="PackedScene" uid="uid://c7861vcnmeslg" path="res://scenes/objects/player.tscn" id="1_ll32n"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bekgnb1j07inf" path="res://assets/gate.png" id="3_tb3rr"]
 [ext_resource type="Texture2D" uid="uid://bfxppuxqlj1b6" path="res://assets/wall tileset.png" id="5_ec8v4"]
 [ext_resource type="Script" path="res://scenes/scripts/dialogue.gd" id="7_41itj"]
+[ext_resource type="FontFile" uid="uid://bqi64atqmb4qq" path="res://assets/fonts/Lexend-Regular.ttf" id="8_mwvnj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vvd5u"]
 texture = ExtResource("5_ec8v4")
@@ -290,6 +291,7 @@ offset_left = 20.0
 offset_top = 20.0
 offset_right = 980.0
 offset_bottom = 180.0
+theme_override_fonts/font = ExtResource("8_mwvnj")
 theme_override_font_sizes/font_size = 32
 autowrap_mode = 2
 
