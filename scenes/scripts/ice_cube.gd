@@ -7,7 +7,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var player = get_node_or_null("../Player")
 	var heart = get_node_or_null("../Player/Heart")
 	if player:
@@ -16,5 +16,3 @@ func _process(delta: float) -> void:
 		var t = $RayCast2D.get_collider()
 		if t == heart:
 			print("hit!")
-		else:
-			print("no")

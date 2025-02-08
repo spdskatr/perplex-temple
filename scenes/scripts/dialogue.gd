@@ -13,7 +13,6 @@ var skip_current_text = false
 @onready var portrait = $Portrait
 
 func queue_text(sprite: String, new_text: String):
-	var first_dialogue = dialogue_queue.size() == 0
 	dialogue_queue.append([sprite, new_text])
 
 func start_text():

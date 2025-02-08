@@ -44,7 +44,7 @@ func _on_door_3_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.
 
 
-func _on_pad_2_body_entered(body: Node2D) -> void:
+func _on_pad_2_body_entered(_body: Node2D) -> void:
 	textbox.queue_text("player", "HOLY FUCKING SHIT\nIS THAT...")
 	textbox.queue_text("player", "IS THAT GOT DAMN CIRNO FROM TOUHOU PROJECT HOLY\n HOLY CRAP")
 	textbox.queue_text("npc", "kuba is a nerd")
