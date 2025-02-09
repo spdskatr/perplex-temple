@@ -1,6 +1,15 @@
 extends Node2D
 
 @onready var dialogue = $Dialogue/Panel
+
+func with_blink(callback):
+	var blinking = func():
+		Global.player.frozen = true
+		await Global.transition.transit(Color(0, 0, 0, 0), Color(0, 0, 0, 1))
+		callback.call()
+		Global.player.frozen = false
+	return blinking
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$HUD.enable_menu_toggle = false
@@ -46,7 +55,7 @@ func _on_big_checkpoint_body_entered(body: Node2D) -> void:
 
 func _on_level_end_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
-		next_scene.call_deferred()
+		with_blink(next_scene).call_deferred()
 
 func next_scene():
 	get_tree().change_scene_to_file("res://scenes/levels/level2.tscn")
