@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d3bbckj3x7cqi"]
+[gd_scene load_steps=10 format=3 uid="uid://d3bbckj3x7cqi"]
 
 [ext_resource type="Shader" path="res://assets/tilt_shift.gdshader" id="1_0t4cp"]
 [ext_resource type="Script" path="res://scenes/scripts/hud.gd" id="1_admbs"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://hud/on_ice.gd" id="4_8dus3"]
 [ext_resource type="Script" path="res://hud/on_weight.gd" id="5_4x68v"]
 [ext_resource type="Script" path="res://hud/on_water.gd" id="5_pv2qc"]
+[ext_resource type="Script" path="res://ticks.gd" id="8_p0y1b"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ntdl8"]
 shader = ExtResource("1_0t4cp")
@@ -105,3 +106,10 @@ offset_bottom = 90.0
 theme_override_fonts/font = ExtResource("4_2m57d")
 theme_override_font_sizes/font_size = 20
 text = "Close ears"
+
+[node name="Ticks" type="Label" parent="."]
+offset_left = 1112.0
+offset_top = 616.0
+offset_right = 1152.0
+offset_bottom = 639.0
+script = ExtResource("8_p0y1b")
