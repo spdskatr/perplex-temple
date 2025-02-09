@@ -7,12 +7,11 @@ func _ready():
 	process_mode = PROCESS_MODE_ALWAYS
 
 func _process(_delta):
-	
-	var slider = Global.hud.get_node("SliderBox/Panel/HSlider")
-	var target = min_volume * (slider.value) / 100
-	var dir = sign(target - volume_db)  
-	
-	volume_db += 0.3 * dir
+	if Global.hud:
+		var slider = Global.hud.get_node("SliderBox/Panel/HSlider")
+		var target = min_volume * (slider.value) / 100
+		var dir = sign(target - volume_db)  
+		volume_db += 0.5 * dir
 	
 	if !playing:
 		play()
