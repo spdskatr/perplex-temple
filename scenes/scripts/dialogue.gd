@@ -23,7 +23,7 @@ func start_text(pause_game = true):
 		# Start text box
 		show()
 		get_tree().paused = pause_game
-		_process_text()
+		await _process_text()
 
 func _process_text():
 	if dialogue_queue.is_empty():

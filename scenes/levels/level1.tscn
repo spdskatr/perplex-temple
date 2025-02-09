@@ -17,7 +17,6 @@ size = Vector2(10, 50)
 script = ExtResource("1_qdoa2")
 
 [node name="Transition" parent="." instance=ExtResource("1_mjqat")]
-visible = false
 
 [node name="Floor" type="TileMapLayer" parent="."]
 z_index = -1
@@ -187,10 +186,10 @@ position = Vector2(-2000, -180)
 [node name="IceCube14" parent="Obstacles" instance=ExtResource("10_rj3aw")]
 position = Vector2(-2000, -140)
 
-[node name="RestartTutorial" type="Area2D" parent="."]
+[node name="BigCheckpoint" type="Area2D" parent="."]
 position = Vector2(-960, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RestartTutorial"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BigCheckpoint"]
 shape = SubResource("RectangleShape2D_ak437")
 
-[connection signal="body_entered" from="RestartTutorial" to="." method="_on_restart_tutorial_body_entered"]
+[connection signal="body_entered" from="BigCheckpoint" to="." method="_on_big_checkpoint_body_entered"]
