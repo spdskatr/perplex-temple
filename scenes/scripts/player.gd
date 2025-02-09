@@ -6,11 +6,15 @@ extends CharacterBody2D
 @export var light: PointLight2D
 @export var frozen: bool = false
 @export var visible_objects: Dictionary = {}
+@export var dying: bool = false
+var frozen_objects = null
 var checkpoint_pos: Vector2 = Vector2(0, 0)
 var since_standing = 0.0
 @export var ratio = 1.
 
 func get_elements():
+	if ratio < 1e-7:
+		return frozen_objects
 	return visible_objects.values()
 
 func _ready() -> void:
@@ -80,8 +84,12 @@ func get_input(_delta):
 		die()
 
 func die() -> void:
-	await Global.transition.transit(Color(1, 0, 0, 0), Color(0, 0, 0, 1))
-	position = checkpoint_pos
+	if not dying:
+		dying = true
+		await Global.transition.transit(Color(1, 0, 0, 0), Color(0, 0, 0, 1))
+		position = checkpoint_pos
+		await get_tree().create_timer(0.2).timeout
+		dying = false
 
 func is_wet() -> bool:
 	return Element_set.wet(get_elements())
@@ -92,4 +100,5 @@ func _physics_process(_delta):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	pass
+	if ratio > 0:
+		frozen_objects = visible_objects.values().duplicate()
