@@ -59,7 +59,6 @@ position = Vector2(106, 0)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Dude"]
 position = Vector2(0, 9.53674e-07)
-scale = Vector2(1, 1)
 texture = ExtResource("10_y0pcp")
 
 [node name="SubViewport" type="SubViewport" parent="."]
