@@ -31,3 +31,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		dialogue.queue_text("npc", "...try the options menu")
 		
 		dialogue.start_text()
+
+func _on_exit_body_entered(body: Node2D) -> void:
+	if body is CharacterBody2D:
+		get_node("Transition").visible = true
+		await Global.transition.transit(Color(0, 0, 0, 0), Color(0, 0, 0, 1))
+		get_tree().change_scene_to_file("res://scenes/levels/level2_shapes.tscn")
