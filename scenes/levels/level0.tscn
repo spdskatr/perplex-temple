@@ -29,7 +29,6 @@ tile_map_data = PackedByteArray("AAAWAAEAAAAAAAcAAAAWAAIAAAAAAAYAAAAXAAEAAAABAAc
 tile_set = ExtResource("1_yqdep")
 
 [node name="Player" parent="." instance=ExtResource("2_fguo4")]
-collision_layer = 289
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 
