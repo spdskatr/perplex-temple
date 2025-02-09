@@ -56,4 +56,10 @@ func _on_pad_2_body_entered(_body: Node2D) -> void:
 	textbox.queue_text("player", "IS THAT GOT DAMN CIRNO FROM TOUHOU PROJECT HOLY\n HOLY CRAP")
 	textbox.queue_text("npc", "kuba is a nerd")
 	textbox.start_text()
-	pass # Replace with function body.
+
+var saved_msg = false
+func _on_checkpoint_checkpoint_saved() -> void:
+	if not saved_msg:
+		saved_msg = true
+		textbox.queue_text("player", "Checkpoint saved!")
+		textbox.start_text()

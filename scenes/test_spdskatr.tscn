@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://bo51v4dymvm1t"]
+[gd_scene load_steps=14 format=4 uid="uid://bo51v4dymvm1t"]
 
 [ext_resource type="Script" path="res://scenes/scripts/test_spdskatr/level.gd" id="1_12a1y"]
 [ext_resource type="PackedScene" uid="uid://c7861vcnmeslg" path="res://scenes/objects/player.tscn" id="1_ll32n"]
@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://cv8ct654whpqf" path="res://scenes/objects/ice_cube.tscn" id="8_oxbxt"]
 [ext_resource type="PackedScene" uid="uid://d3bbckj3x7cqi" path="res://scenes/hud.tscn" id="9_hbrsj"]
 [ext_resource type="PackedScene" uid="uid://bklsi754w04wr" path="res://scenes/misc/transition.tscn" id="10_3omjc"]
+[ext_resource type="PackedScene" uid="uid://d4exlr811ynfd" path="res://scenes/objects/checkpoint.tscn" id="11_y4kdw"]
+[ext_resource type="Texture2D" uid="uid://d1ijrt0c7yt4a" path="res://assets/faces/placeholder.png" id="12_y4k28"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gwwp"]
 size = Vector2(10, 10)
@@ -80,8 +82,16 @@ position = Vector2(-188, 224)
 
 [node name="Transition" parent="." instance=ExtResource("10_3omjc")]
 
+[node name="Checkpoint" parent="." instance=ExtResource("11_y4kdw")]
+position = Vector2(500, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Checkpoint"]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("12_y4k28")
+
 [connection signal="body_entered" from="Pad" to="." method="_on_pad_body_entered"]
 [connection signal="body_entered" from="Pad2" to="." method="_on_pad_2_body_entered"]
 [connection signal="body_entered" from="Door1" to="." method="_on_door_1_body_entered"]
 [connection signal="body_entered" from="Door2" to="." method="_on_door_2_body_entered"]
 [connection signal="body_entered" from="Door3" to="." method="_on_door_3_body_entered"]
+[connection signal="checkpoint_saved" from="Checkpoint" to="." method="_on_checkpoint_checkpoint_saved"]

@@ -10,8 +10,6 @@ var checkpoint_pos: Vector2 = Vector2(0, 0)
 var since_standing = 0.0
 @export var ratio = 1.
 
-@onready var transition = Global.transition
-
 func get_elements():
 	return visible_objects.values()
 
@@ -82,7 +80,7 @@ func get_input(_delta):
 		die()
 
 func die() -> void:
-	await transition.transit(Color(1, 0, 0, 0), Color(0, 0, 0, 1))
+	await Global.transition.transit(Color(1, 0, 0, 0), Color(0, 0, 0, 1))
 	position = checkpoint_pos
 
 func is_wet() -> bool:
