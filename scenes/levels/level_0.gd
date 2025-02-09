@@ -42,7 +42,7 @@ func _on_dude_body_entered(body):
 		dialogue.queue_text("player", "Like that thing where you associate numbers with colours?")
 		dialogue.queue_text("npc", "Indeed.")
 		dialogue.queue_text("npc", "In the Perplex Temple, when one sense is activated, some of its energy spills over to the rest.")
-		dialogue.queue_text("npc", "Just like seeing a campfire far far away might might make you feel a sliver of warmth despite the distance.")
+		dialogue.queue_text("npc", "Just like seeing a campfire far far away might make you feel a sliver of warmth despite the distance.")
 		dialogue.queue_text("npc", "Or coming across a massive boulder might make you just a bit more wary of the weight of your own steps.")
 		dialogue.queue_text("player", "...")
 		dialogue.queue_text("player", "(visible confusion)")

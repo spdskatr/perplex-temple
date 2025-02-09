@@ -32,6 +32,7 @@ var has_solved_s: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	$HUD/SliderBox/Panel/HSlider.value = 30
 	Global.transition.visible = true
 	Global.transition.update(Color.BLACK)
 	rng.randomize()
