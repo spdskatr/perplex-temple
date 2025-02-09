@@ -44,6 +44,7 @@ polygon = PackedVector2Array(36, 19, 51, 19, 36, 19, 36, 19, 36, 19, 36, 19)
 
 [node name="Player" type="CharacterBody2D"]
 light_mask = 0
+collision_layer = 33
 script = ExtResource("1_c85sp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

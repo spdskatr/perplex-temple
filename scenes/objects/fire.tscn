@@ -23,6 +23,7 @@ element = 4
 texture = SubResource("GradientTexture2D_0a0s1")
 
 [node name="DeathZone" type="Area2D" parent="." index="2"]
+collision_layer = 32
 script = ExtResource("2_pkemy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone" index="0"]

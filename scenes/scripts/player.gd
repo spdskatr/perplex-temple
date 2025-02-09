@@ -85,13 +85,13 @@ func die() -> void:
 	await transition.transit(Color(1, 0, 0, 0), Color(0, 0, 0, 1))
 	position = checkpoint_pos
 
+func is_wet() -> bool:
+	return Element_set.wet(get_elements())
+
 func _physics_process(_delta):
 	print(is_wet())
 	get_input(_delta)
 	move_and_slide()
-
-func is_wet():
-	Element_set.wet(get_elements())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
