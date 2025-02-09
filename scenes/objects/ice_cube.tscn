@@ -1,17 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cv8ct654whpqf"]
+[gd_scene load_steps=4 format=3 uid="uid://cv8ct654whpqf"]
 
+[ext_resource type="Texture2D" uid="uid://2hdeqjyhrn84" path="res://assets/ice.png" id="1_hhnog"]
 [ext_resource type="PackedScene" uid="uid://bwe2x266pygss" path="res://scenes/objects/elemental_object.tscn" id="1_u7ktt"]
-
-[sub_resource type="Gradient" id="Gradient_kuyci"]
-offsets = PackedFloat32Array(0, 0.00324675, 1)
-colors = PackedColorArray(0, 0, 1, 1, 0.0519481, 0.0519481, 1, 1, 0.611765, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_xe6p4"]
-gradient = SubResource("Gradient_kuyci")
-width = 40
-height = 40
-fill = 2
-fill_from = Vector2(0.5, 0.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xrep4"]
 size = Vector2(40, 40)
@@ -19,7 +9,7 @@ size = Vector2(40, 40)
 [node name="IceCube" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_xe6p4")
+texture = ExtResource("1_hhnog")
 
 [node name="ElementalObject" parent="." instance=ExtResource("1_u7ktt")]
 element = 5
