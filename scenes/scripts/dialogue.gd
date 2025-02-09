@@ -68,6 +68,11 @@ func _process(delta):
 		time_since_boop = 0
 		audio.play()
 	
+	if Input.is_action_pressed("EndDialogue"):
+		dialogue_queue.clear()
+		hide()  # Hide the text box when dialogue is finished
+		get_tree().paused = false
+	
 	if Input.is_action_pressed("accept") and time_since_skip > skip_cooldown:
 		time_since_skip = 0
 		
