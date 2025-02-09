@@ -18,6 +18,10 @@ var skip_cooldown: float = 0.3
 func queue_text(sprite: String, new_text: String):
 	dialogue_queue.append([sprite, new_text])
 
+func done():
+	while not dialogue_queue.is_empty():
+		await get_tree().create_timer(0.1).timeout
+
 func start_text(pause_game = true):
 	if not visible:
 		# Start text box

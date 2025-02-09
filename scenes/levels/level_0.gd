@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var dialogue = $Dialogue/Panel
+var talked: bool = false
 
 func _ready() -> void:
 	$HUD.enable_menu_toggle = false
@@ -9,12 +10,13 @@ func change_scene_to_main():
 	get_tree().change_scene_to_file("res://scenes/levels/level1.tscn")
 
 func _on_door_body_entered(body: Node2D) -> void:
-	if body is CharacterBody2D:
+	if talked and body is CharacterBody2D:
 		await Global.transition.transit(Color(0, 0, 0), Color(0, 0, 0))
 		change_scene_to_main.call_deferred()
 
 
 func _on_dude_body_entered(body):
+	talked = true
 	if body is CharacterBody2D:
 		dialogue.queue_text("npc", "Greetings, traveller.")
 		dialogue.queue_text("player", "...what is this place?")
@@ -48,3 +50,5 @@ func _on_dude_body_entered(body):
 		dialogue.queue_text("player", "Thanks...")
 		
 		dialogue.start_text()
+		await dialogue.done()
+		$LockedDoor.visible = false
