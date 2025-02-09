@@ -105,3 +105,19 @@ func _process(_delta: float) -> void:
 		for e in visible_objects.values().duplicate():
 			if e == Element.TYPE.WATER:
 				frozen_objects.append(e)
+	# right 0 
+	# down 0.25
+	# left 0.5
+	# up -0.25
+	var r = rotation / (2*PI)
+	var sprite = $Sprite2D
+	sprite.rotation = -rotation
+	if 0.12 < r and r < 0.37:
+		sprite.frame = 0
+	if -0.12 < r and r < 0.12:
+		sprite.frame = 1
+	if -0.37 < r and r < -0.12:
+		sprite.frame = 2
+	if 0.37 < r and r < 0.62:
+		sprite.frame = 3
+		
