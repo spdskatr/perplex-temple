@@ -4,6 +4,7 @@ extends Node2D
 var talked: bool = false
 
 func _ready() -> void:
+	$HUD/SliderBox/Panel/HSlider.value = 30
 	$HUD.enable_menu_toggle = false
 
 func change_scene_to_main():
