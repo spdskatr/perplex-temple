@@ -153,13 +153,13 @@ arity = 5
 [node name="AudioCrumble" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(600, 100)
 stream = ExtResource("14_nt1m6")
-volume_db = 5.0
+volume_db = 20.0
 metadata/_edit_lock_ = true
 
 [node name="AudioGate" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(360, 100)
 stream = ExtResource("15_ijpg8")
-volume_db = 5.0
+volume_db = 20.0
 metadata/_edit_lock_ = true
 
 [node name="AudioTone" type="AudioStreamPlayer2D" parent="."]

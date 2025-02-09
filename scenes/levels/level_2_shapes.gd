@@ -33,6 +33,7 @@ var has_solved_s: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$HUD/SliderBox/Panel/HSlider.value = 30
+	$VisibleWorld/Player.rotation = -PI / 2
 	Global.transition.visible = true
 	Global.transition.update(Color.BLACK)
 	rng.randomize()
@@ -137,17 +138,29 @@ func provide_goals() -> void:
 		particle_spawner.spawn_particle()
 		play_color_s_sound(target_color_s)
 
+func should_ignore_door_enter() -> bool:
+	var number_closed: int = 0
+	for b in is_closed_a:
+		number_closed += int(b)
+	for b in is_closed_s:
+		number_closed += int(b)
+	if number_closed >= 2:
+		return true
+	return false
+
 func _on_door_entered_a(body: Node2D, color: ColorA) -> void:
-	if body.get_instance_id() == player.get_instance_id():
-		if !is_closed_a[color]:
-			close_door_a(color, true)
-			on_door_entered_cleanup()
+	if body.get_instance_id() == player.get_instance_id() && !is_closed_a[color]:
+		if should_ignore_door_enter():
+			return
+		close_door_a(color, true)
+		on_door_entered_cleanup()
 		
 func _on_door_entered_s(body: Node2D, color: ColorS) -> void:
-	if body.get_instance_id() == player.get_instance_id():
-		if !is_closed_s[color]:
-			close_door_s(color, true)
-			on_door_entered_cleanup()
+	if body.get_instance_id() == player.get_instance_id() && !is_closed_s[color]:
+		if should_ignore_door_enter():
+			return
+		close_door_s(color, true)
+		on_door_entered_cleanup()
 			
 var has_color_combined_hint_actived = false
 func provide_color_hint() -> void:
@@ -203,15 +216,8 @@ func on_door_entered_cleanup() -> void:
 					particle_spawner.spawn_particle()
 				break
 	
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(1.0).timeout
 
-	for i in range(is_closed_a.size()):
-		close_door_a(i, false)
-	for i in range(is_closed_s.size()):
-		close_door_s(i, false)
-		
-	await get_tree().create_timer(0.5).timeout
-	
 	provide_goals()	
 	
 	if should_provide_color_hint:
@@ -225,7 +231,11 @@ func on_door_entered_cleanup() -> void:
 			for j in range(2):
 				walls.set_cell(Vector2i(17 + i, 4 + j), 1, Vector2(i, j))
 		$AudioGate.play()
-		
+	
+	for i in range(is_closed_a.size()):
+		close_door_a(i, false)
+	for i in range(is_closed_s.size()):
+		close_door_s(i, false)
 
 func _on_pad_r_body_entered(body: Node2D) -> void:
 	_on_door_entered_a(body, ColorA.RED)
