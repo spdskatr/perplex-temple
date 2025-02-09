@@ -7,7 +7,7 @@ func _ready() -> void:
 	Global.hud = self
 
 func _input(event):
-	if event.is_action_pressed("ui_cancel") and enable_menu_toggle:
+	if event.is_action_pressed("settings") and enable_menu_toggle:
 		toggle_menu()
 
 func toggle_menu():

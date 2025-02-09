@@ -7,8 +7,11 @@ var talked2: bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$HUD/SliderBox/Panel/HSlider.value = 30
-	pass # Replace with function body.
-
+	get_node("Transition").visible = true
+	post_spawn.call_deferred()
+	
+func post_spawn():
+	await Global.transition.transit(Color(0, 0, 0, 1), Color(0, 0, 0, 0))
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
