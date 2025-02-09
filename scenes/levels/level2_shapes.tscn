@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=4 uid="uid://yos43qf52l3v"]
+[gd_scene load_steps=20 format=4 uid="uid://yos43qf52l3v"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_2_shapes.gd" id="1_65ebm"]
 [ext_resource type="TileSet" uid="uid://d035mgrwol727" path="res://scenes/wall_tileset.tres" id="1_lc77h"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://wn8yarsc61k1" path="res://assets/sounds/473575__nox_sound__rock_movement_friction_01_pitchdown.wav" id="14_nt1m6"]
 [ext_resource type="AudioStream" uid="uid://cjijy8mmvplae" path="res://assets/sounds/348951__abstraktgeneriert__crumble-2-pitchdown.wav" id="15_ijpg8"]
 [ext_resource type="AudioStream" uid="uid://druqn12dd4r2j" path="res://assets/sounds/562188__gristi__snd_elevator_power_down.wav" id="16_fdj4h"]
+[ext_resource type="PackedScene" uid="uid://b464nqjijksl2" path="res://scenes/objects/door.tscn" id="17_xnw32"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mkomk"]
 shader = ExtResource("2_e0xf2")
@@ -55,14 +56,13 @@ tile_map_data = PackedByteArray("AAAsAAMAAAACAAEAAAAsAAIAAAACAAIAAAArAAMAAAACAAM
 tile_set = ExtResource("1_lc77h")
 metadata/_edit_lock_ = true
 
+[node name="Exit" parent="VisibleWorld" instance=ExtResource("17_xnw32")]
+position = Vector2(360, 100)
+
 [node name="PadReset" parent="VisibleWorld" instance=ExtResource("6_x82ac")]
 visible = false
 position = Vector2(300, 20)
 metadata/_edit_lock_ = true
-
-[node name="PadExit" parent="VisibleWorld" instance=ExtResource("6_x82ac")]
-visible = false
-position = Vector2(360, 90)
 
 [node name="PadR" parent="VisibleWorld" instance=ExtResource("6_x82ac")]
 visible = false
@@ -168,8 +168,8 @@ stream = ExtResource("16_fdj4h")
 volume_db = 5.0
 metadata/_edit_lock_ = true
 
+[connection signal="body_entered" from="VisibleWorld/Exit" to="." method="_on_exit_body_entered"]
 [connection signal="body_entered" from="VisibleWorld/PadReset" to="." method="_on_pad_reset_body_entered"]
-[connection signal="body_entered" from="VisibleWorld/PadExit" to="." method="_on_pad_exit_body_entered"]
 [connection signal="body_entered" from="VisibleWorld/PadR" to="." method="_on_pad_r_body_entered"]
 [connection signal="body_entered" from="VisibleWorld/PadG" to="." method="_on_pad_g_body_entered"]
 [connection signal="body_entered" from="VisibleWorld/PadB" to="." method="_on_pad_b_body_entered"]

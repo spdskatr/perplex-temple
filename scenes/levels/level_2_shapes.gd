@@ -110,8 +110,8 @@ func reset_puzzle() -> void:
 	has_solved_a = false
 	has_solved_s = false
 	
-	target_color_a = rng.randi_range(0, ColorA.size() - 1)
-	target_color_s = rng.randi_range(0, ColorS.size() - 1)
+	target_color_a = ColorA(rng.randi_range(0, ColorA.size() - 1))
+	target_color_s = ColorS(rng.randi_range(0, ColorS.size() - 1))
 	
 	for i in range(is_closed_a.size()):
 		close_door_a(i, false)
@@ -181,22 +181,22 @@ func on_door_entered_cleanup() -> void:
 	if number_closed_s == 2:
 		for i in is_closed_s.size():
 			if !is_closed_s[i]:
+				play_color_a_sound(i)
 				for dur in [0.1, 0.05, 0.05]:
 					particle_spawner.color = COLOR_A_COLORS[i]
 					particle_spawner.arity = rng.randi_range(3, 6)
 					await get_tree().create_timer(dur).timeout
 					particle_spawner.spawn_particle()
-					play_color_a_sound(i)
 				break
 	elif number_closed_a == 2:
 		for i in is_closed_a.size():
 			if !is_closed_a[i]:
+				play_color_s_sound(i)
 				for dur in [0.1, 0.05, 0.05]:
 					particle_spawner.color = COLOR_S_COLORS[i]
 					particle_spawner.arity = rng.randi_range(3, 6)
 					await get_tree().create_timer(dur).timeout
 					particle_spawner.spawn_particle()
-					play_color_s_sound(i)
 				break
 	
 	await get_tree().create_timer(0.5).timeout
@@ -206,13 +206,14 @@ func on_door_entered_cleanup() -> void:
 	for i in range(is_closed_s.size()):
 		close_door_s(i, false)
 		
-	if should_provide_color_hint:
-		provide_color_hint()
-		
 	await get_tree().create_timer(0.5).timeout
 	
 	provide_goals()	
 	
+	if should_provide_color_hint:
+		await get_tree().create_timer(2).timeout
+		provide_color_hint()
+		
 	if !is_level_done && has_solved_a && has_solved_s:
 		is_level_done = true
 		var walls: TileMapLayer = get_tree().current_scene.get_node("VisibleWorld/Walls")
@@ -240,6 +241,8 @@ func _on_pad_m_body_entered(body: Node2D) -> void:
 func _on_pad_y_body_entered(body: Node2D) -> void:
 	_on_door_entered_s(body, ColorS.YELLOW)
 
-func _on_pad_exit_body_entered(body: Node2D) -> void:
-	# TODO: Exit level.
-	pass
+func _on_exit_body_entered(body: Node2D) -> void:
+	if body is CharacterBody2D:
+		get_node("Transition").visible = true
+		await Global.transition.transit(Color(0, 0, 0, 0), Color(0, 0, 0, 1))
+		get_tree().change_scene_to_file("res://scenes/levels/level3.tscn")
