@@ -7,8 +7,8 @@ var whos_typing = "player"
 var is_typing = false
 var skip_current_text = false
 @onready var sprites = {
-	"player": preload("res://assets/faces/placeholder.png"), 
-	"npc": preload("res://assets/faces/placeholder2.png")
+	"player": preload("res://assets/player.png"), 
+	"npc": preload("res://assets/npc.png")
 }
 
 @onready var label = $Label
