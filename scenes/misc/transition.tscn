@@ -2,5 +2,14 @@
 
 [ext_resource type="Script" path="res://scenes/scripts/transition.gd" id="1_oa7dk"]
 
-[node name="Transition" type="CanvasModulate"]
+[node name="Transition" type="CanvasLayer"]
+scale = Vector2(100, 100)
+transform = Transform2D(100, 0, 0, 100, 0, 0)
 script = ExtResource("1_oa7dk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+color = Color(0, 0, 0, 1)

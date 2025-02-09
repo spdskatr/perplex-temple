@@ -8,6 +8,8 @@
 
 [node name="BaseLevel" type="Node2D"]
 
+[node name="Transition" parent="." instance=ExtResource("5_fuhs3")]
+
 [node name="Floor" type="TileMapLayer" parent="."]
 z_index = -1
 scale = Vector2(2.5, 2.5)
@@ -24,5 +26,3 @@ tile_set = ExtResource("1_tb0hx")
 [node name="Dialogue" parent="." instance=ExtResource("2_qi4ja")]
 
 [node name="HUD" parent="." instance=ExtResource("4_rfh2e")]
-
-[node name="Transition" parent="." instance=ExtResource("5_fuhs3")]

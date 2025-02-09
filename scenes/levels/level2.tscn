@@ -52,10 +52,6 @@ tile_set = ExtResource("1_f34ej")
 position = Vector2(-1679, 164)
 shape = SubResource("RectangleShape2D_ovra3")
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-visible = false
-color = Color(0, 0, 0, 1)
-
 [node name="ElementalObject" parent="." instance=ExtResource("6_pf3em")]
 position = Vector2(-880.442, 142.702)
 element = 5

@@ -81,7 +81,7 @@ func get_input(_delta):
 		die()
 
 func die() -> void:
-	await transition.transit(Color(1, 0, 0), Color(1, 1, 1))
+	await transition.transit(Color(1, 0, 0, 0), Color(0, 0, 0, 1))
 	position = checkpoint_pos
 
 func _physics_process(_delta):

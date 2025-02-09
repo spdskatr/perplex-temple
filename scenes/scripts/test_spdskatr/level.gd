@@ -22,7 +22,7 @@ func _on_pad_body_entered(body: Node2D) -> void:
 func with_blink(callback):
 	var blinking = func():
 		player.frozen = true
-		await $Transition.transit(Color(0, 0, 0), Color(1, 1, 1))
+		await Global.transition.transit(Color(0, 0, 0), Color(0, 0, 0))
 		callback.call()
 		player.frozen = false
 	return blinking

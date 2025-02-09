@@ -7,6 +7,7 @@ func change_scene_to_main():
 
 func _on_door_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
+		await Global.transition.transit(Color(0, 0, 0), Color(0, 0, 0))
 		change_scene_to_main.call_deferred()
 
 

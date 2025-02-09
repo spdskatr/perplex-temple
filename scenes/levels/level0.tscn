@@ -37,6 +37,7 @@ tile_set = ExtResource("1_yqdep")
 [node name="HUD" parent="." instance=ExtResource("4_ka3fi")]
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0, 0, 0, 1)
 
 [node name="Door" parent="." instance=ExtResource("6_ek4ld")]
@@ -48,6 +49,8 @@ position = Vector2(106, 0)
 [node name="Sprite2D2" type="Sprite2D" parent="Dude"]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("8_b2pug")
+
+[node name="SubViewport" type="SubViewport" parent="."]
 
 [connection signal="body_entered" from="Door" to="." method="_on_door_body_entered"]
 [connection signal="body_entered" from="Dude" to="." method="_on_dude_body_entered"]
