@@ -6,10 +6,6 @@
 use_parent_material = true
 script = ExtResource("1_hw6f7")
 
-[node name="Polygon2D3" type="Polygon2D" parent="."]
-visible = false
-use_parent_material = true
-
 [node name="Polygon2D" type="Polygon2D" parent="."]
 use_parent_material = true
 polygon = PackedVector2Array(0, -1, 0.951, -0.309, 0.588, 0.809, -0.588, 0.809, -0.951, -0.309)

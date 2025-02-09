@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://blneno1itbkph"]
+
+[ext_resource type="Script" path="res://scenes/scripts/polygon_sign.gd" id="1_tf1es"]
+
+[node name="PolygonSign" type="Node2D"]
+use_parent_material = true
+position = Vector2(600, -500)
+script = ExtResource("1_tf1es")
+color = Color(0.95, 1, 0, 1)
+arity = 5
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+use_parent_material = true
+polygon = PackedVector2Array(0, -1, 0.951, -0.309, 0.588, 0.809, -0.588, 0.809, -0.951, -0.309)
+metadata/_edit_lock_ = true

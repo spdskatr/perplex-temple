@@ -1,5 +1,5 @@
 shader_type canvas_item;
-
+render_mode unshaded;
 uniform float brightness = 1.0;
 
 void vertex() {
@@ -7,7 +7,7 @@ void vertex() {
 }
 
 void fragment() {
-	COLOR.a *= floor(brightness);
+	COLOR.a *= brightness;
 }
 
 //void light() {
