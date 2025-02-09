@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://cas8mlxbss1b7"]
+[gd_scene load_steps=5 format=3 uid="uid://cas8mlxbss1b7"]
 
 [ext_resource type="PackedScene" uid="uid://bwe2x266pygss" path="res://scenes/objects/elemental_object.tscn" id="1_7eqrn"]
 
@@ -7,13 +7,23 @@ colors = PackedColorArray(0.336, 0.719, 0.965, 0.508, 0.156, 0.163, 1, 0.584)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_352tm"]
 gradient = SubResource("Gradient_twidd")
+width = 40
+height = 40
 fill = 1
 fill_from = Vector2(0.518349, 0.53211)
 fill_to = Vector2(0.619266, 0.431193)
 repeat = 1
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pgwee"]
+size = Vector2(40, 40)
 
 [node name="Water" instance=ExtResource("1_7eqrn")]
 element = 6
 
 [node name="Sprite2D" type="Sprite2D" parent="." index="1"]
 texture = SubResource("GradientTexture2D_352tm")
+
+[node name="Area2D" type="StaticBody2D" parent="." index="2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+shape = SubResource("RectangleShape2D_pgwee")

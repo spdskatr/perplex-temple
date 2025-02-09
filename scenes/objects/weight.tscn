@@ -1,15 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddkfd11la5tb1"]
+[gd_scene load_steps=5 format=3 uid="uid://ddkfd11la5tb1"]
 
-[ext_resource type="PackedScene" uid="uid://lvk1nwu7fpog" path="res://scenes/objects/elemental_object.tscn" id="1_q7856"]
+[ext_resource type="PackedScene" uid="uid://bwe2x266pygss" path="res://scenes/objects/elemental_object.tscn" id="1_q7856"]
+
+[sub_resource type="Gradient" id="Gradient_8tghl"]
+colors = PackedColorArray(0.466667, 0.466667, 0.466667, 1, 0.466667, 0.466667, 0.466667, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_hsxxh"]
+gradient = SubResource("Gradient_8tghl")
+width = 40
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xlavj"]
+size = Vector2(40, 40)
 
 [node name="Weight" type="Node2D"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -20.0
-offset_top = -21.0
-offset_right = 20.0
-offset_bottom = 19.0
-color = Color(0.389287, 0.389287, 0.389287, 1)
-
 [node name="ElementalObject" parent="." instance=ExtResource("1_q7856")]
 element = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = SubResource("GradientTexture1D_hsxxh")
+region_enabled = true
+region_rect = Rect2(0, 0, 40, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_xlavj")

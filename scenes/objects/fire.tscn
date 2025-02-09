@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://crir6fod2x27s"]
+[gd_scene load_steps=6 format=3 uid="uid://c5282cqngi27k"]
 
 [ext_resource type="PackedScene" uid="uid://bwe2x266pygss" path="res://scenes/objects/elemental_object.tscn" id="1_sc52t"]
 [ext_resource type="Script" path="res://scenes/objects/death_zone.gd" id="2_pkemy"]
@@ -9,12 +9,14 @@ colors = PackedColorArray(0.658621, 0, 0.0187692, 1, 0.799913, 0.593651, 0.21042
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_0a0s1"]
 gradient = SubResource("Gradient_fvk1f")
+width = 40
+height = 40
 fill_from = Vector2(0.518349, 0.53211)
 fill_to = Vector2(0.62844, 0.619266)
 repeat = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_23mnj"]
-size = Vector2(64, 64)
+size = Vector2(40, 40)
 
 [node name="Fire" instance=ExtResource("1_sc52t")]
 element = 4

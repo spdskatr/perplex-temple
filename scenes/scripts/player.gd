@@ -89,7 +89,6 @@ func is_wet() -> bool:
 	return Element_set.wet(get_elements())
 
 func _physics_process(_delta):
-	print(is_wet())
 	get_input(_delta)
 	move_and_slide()
 
