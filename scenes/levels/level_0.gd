@@ -2,6 +2,9 @@ extends Node2D
 
 @onready var dialogue = $Dialogue/Panel
 
+func _ready() -> void:
+	$HUD.enable_menu_toggle = false
+
 func change_scene_to_main():
 	get_tree().change_scene_to_file("res://scenes/levels/level1.tscn")
 

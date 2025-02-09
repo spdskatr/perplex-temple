@@ -26,7 +26,7 @@ func post_spawn_dialogue():
 		dialogue.queue_text("npc", "Seeing a boulder causes you to feel heavy.")
 		dialogue.queue_text("npc", "When you're heavy, you cannot move. The only way to move again is to look away from the boulder.")
 		dialogue.queue_text("player", "Oh...")
-		dialogue.queue_text("npc", "Hold [SHIFT] to move without changing the direction you look.")
+		dialogue.queue_text("npc", "Hold [SHIFT] to move without changing your viewing direction.")
 		dialogue.start_text()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
