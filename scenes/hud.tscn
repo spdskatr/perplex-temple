@@ -92,7 +92,7 @@ offset_right = 100.0
 offset_bottom = -20.0
 theme_override_fonts/font = ExtResource("4_2m57d")
 theme_override_font_sizes/font_size = 20
-text = "the options menu"
+text = "the options menu (volume & brightness slider)"
 
 [node name="Label2" type="Label" parent="SliderBox/Panel"]
 layout_mode = 0
