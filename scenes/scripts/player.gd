@@ -101,4 +101,7 @@ func _physics_process(_delta):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if ratio > 0:
-		frozen_objects = visible_objects.values().duplicate()
+		frozen_objects = []
+		for e in visible_objects.values().duplicate():
+			if e == Element.TYPE.WATER:
+				frozen_objects.append(e)
