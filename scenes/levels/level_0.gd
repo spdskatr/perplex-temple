@@ -3,7 +3,7 @@ extends Node2D
 @onready var dialogue = $Dialogue/Panel
 
 func change_scene_to_main():
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	get_tree().change_scene_to_file("res://scenes/levels/level1.tscn")
 
 func _on_door_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:

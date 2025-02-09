@@ -25,6 +25,8 @@ texture = SubResource("GradientTexture2D_xe6p4")
 element = 5
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 256
+collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_xrep4")

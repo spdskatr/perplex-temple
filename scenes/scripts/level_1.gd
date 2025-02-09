@@ -4,7 +4,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$HUD.enable_menu_toggle = false
-	$HUD/SliderBox/Panel/HSlider.value = 25
+	$HUD/SliderBox/Panel/HSlider.value = 30
 	post_spawn_dialogue.call_deferred()
 	pass # Replace with function body.
 
@@ -20,9 +20,18 @@ func _process(delta: float) -> void:
 
 var btn_tutorial_done = false
 func _on_big_checkpoint_body_entered(body: Node2D) -> void:
-	$Player.checkpoint_pos = $BigCheckpoint.position
-	if not btn_tutorial_done and body is CharacterBody2D:
-		btn_tutorial_done = true
-		dialogue.queue_text("npc", "Remember, you can always press [R] or [F5] to reset!")
-		dialogue.queue_text("player", "Yeah, yeah...")
-		dialogue.start_text()
+	if body is CharacterBody2D:
+		$Player.checkpoint_pos = $BigCheckpoint.position
+		if not btn_tutorial_done:
+			btn_tutorial_done = true
+			dialogue.queue_text("npc", "Remember, you can always press [R] or [F5] to reset!")
+			dialogue.queue_text("player", "Yeah, yeah...")
+			dialogue.start_text()
+
+
+func _on_level_end_body_entered(body: Node2D) -> void:
+	if body is CharacterBody2D:
+		next_scene()
+
+func next_scene():
+	get_tree().change_scene_to_file("res://scenes/levels/level2.tscn")
