@@ -13,7 +13,7 @@ var skip_current_text = false
 @onready var portrait = $Portrait
 
 var time_since_skip: float = 0
-var skip_cooldown: float = 0.12
+var skip_cooldown: float = 0.20
 
 func queue_text(sprite: String, new_text: String):
 	dialogue_queue.append([sprite, new_text])

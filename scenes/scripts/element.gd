@@ -1,6 +1,6 @@
 class_name Element
 
-enum TYPE {DEFAULT, STONE, LIGHT, WOOD, FIRE, ICE}
+enum TYPE {DEFAULT, STONE, LIGHT, WOOD, FIRE, ICE, WATER}
 
 static func can_move(type) -> bool:
 	match type:
@@ -17,5 +17,11 @@ static func glows(type) -> bool:
 static func slides(type) -> bool:
 	match type:
 		TYPE.ICE:
+			return true
+	return false
+	
+static func wet(type) -> bool:
+	match type:
+		TYPE.WATER:
 			return true
 	return false

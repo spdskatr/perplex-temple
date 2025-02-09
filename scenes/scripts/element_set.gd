@@ -17,3 +17,9 @@ static func slides(elements) -> bool:
 		if Element.slides(el):
 			return true
 	return false
+
+static func wet(elements) -> bool:
+	for el in elements:
+		if Element.wet(el):
+			return true
+	return false
