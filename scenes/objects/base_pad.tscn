@@ -1,20 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://plc656plpuek"]
+[gd_scene load_steps=2 format=3 uid="uid://plc656plpuek"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4qoti"]
 size = Vector2(40, 40)
-
-[sub_resource type="Gradient" id="Gradient_pssh2"]
-colors = PackedColorArray(0, 1, 0, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_nbi21"]
-gradient = SubResource("Gradient_pssh2")
-width = 40
-height = 40
 
 [node name="Pad" type="Area2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_4qoti")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = SubResource("GradientTexture2D_nbi21")

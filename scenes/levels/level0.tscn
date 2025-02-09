@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bekgnb1j07inf" path="res://assets/gate.png" id="7_e53w8"]
 [ext_resource type="PackedScene" uid="uid://plc656plpuek" path="res://scenes/objects/base_pad.tscn" id="7_kxqx3"]
 [ext_resource type="PackedScene" uid="uid://bklsi754w04wr" path="res://scenes/misc/transition.tscn" id="9_x3c5k"]
-[ext_resource type="Texture2D" uid="uid://7r8pslp5ehnx" path="res://assets/npc.png" id="10_p5lqg"]
+[ext_resource type="Texture2D" uid="uid://b6nt7jfard4kx" path="res://assets/npc_standing.png" id="10_y0pcp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ul2hq"]
 atlas = ExtResource("7_e53w8")
@@ -58,8 +58,9 @@ position = Vector2(315, -245)
 position = Vector2(106, 0)
 
 [node name="Sprite2D2" type="Sprite2D" parent="Dude"]
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("10_p5lqg")
+position = Vector2(0, 9.53674e-07)
+scale = Vector2(1, 1)
+texture = ExtResource("10_y0pcp")
 
 [node name="SubViewport" type="SubViewport" parent="."]
 
