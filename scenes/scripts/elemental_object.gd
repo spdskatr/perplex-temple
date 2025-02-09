@@ -12,4 +12,6 @@ func _process(_delta: float) -> void:
 	if t == heart and visibility.is_on_screen():
 		player.visible_objects[get_instance_id()] = element
 	else:
-		player.visible_objects.erase(get_instance_id())
+		if player.visible_objects.has(get_instance_id()):
+			await get_tree().create_timer(0.1).timeout
+			player.visible_objects.erase(get_instance_id())
