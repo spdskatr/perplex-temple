@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://crir6fod2x27s"]
+
+[ext_resource type="PackedScene" uid="uid://bwe2x266pygss" path="res://scenes/objects/elemental_object.tscn" id="1_sc52t"]
+[ext_resource type="Script" path="res://scenes/objects/death_zone.gd" id="2_pkemy"]
+
+[sub_resource type="Gradient" id="Gradient_fvk1f"]
+offsets = PackedFloat32Array(0, 0.578313, 1)
+colors = PackedColorArray(0.658621, 0, 0.0187692, 1, 0.799913, 0.593651, 0.210425, 1, 0.885042, 0.336336, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0a0s1"]
+gradient = SubResource("Gradient_fvk1f")
+fill_from = Vector2(0.518349, 0.53211)
+fill_to = Vector2(0.62844, 0.619266)
+repeat = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_23mnj"]
+size = Vector2(64, 64)
+
+[node name="Fire" instance=ExtResource("1_sc52t")]
+element = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="1"]
+texture = SubResource("GradientTexture2D_0a0s1")
+
+[node name="DeathZone" type="Area2D" parent="." index="2"]
+script = ExtResource("2_pkemy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DeathZone" index="0"]
+shape = SubResource("RectangleShape2D_23mnj")
+
+[connection signal="body_entered" from="DeathZone" to="DeathZone" method="_on_body_entered"]

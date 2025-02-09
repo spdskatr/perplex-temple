@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://dbd1syafx3mkx"]
+[gd_scene load_steps=10 format=4 uid="uid://dbd1syafx3mkx"]
 
 [ext_resource type="TileSet" uid="uid://d035mgrwol727" path="res://scenes/wall_tileset.tres" id="1_e7kqm"]
 [ext_resource type="PackedScene" uid="uid://cv8ct654whpqf" path="res://scenes/objects/ice_cube.tscn" id="2_sbojp"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://ddkfd11la5tb1" path="res://scenes/objects/weight.tscn" id="3_qj446"]
 [ext_resource type="PackedScene" uid="uid://d3bbckj3x7cqi" path="res://scenes/hud.tscn" id="4_72ls0"]
 [ext_resource type="PackedScene" uid="uid://bklsi754w04wr" path="res://scenes/misc/transition.tscn" id="7_it5nq"]
+[ext_resource type="PackedScene" uid="uid://cas8mlxbss1b7" path="res://scenes/objects/water.tscn" id="8_xadfi"]
+[ext_resource type="PackedScene" uid="uid://crir6fod2x27s" path="res://scenes/objects/fire.tscn" id="9_tvavc"]
 
 [node name="ElementalTestLevel" type="Node2D"]
 
@@ -38,3 +40,9 @@ position = Vector2(-1438, 212)
 [node name="Dialogue" parent="." instance=ExtResource("3_ncdpi")]
 
 [node name="HUD" parent="." instance=ExtResource("4_72ls0")]
+
+[node name="Water" parent="." instance=ExtResource("8_xadfi")]
+position = Vector2(414.476, 56.1058)
+
+[node name="Fire" parent="." instance=ExtResource("9_tvavc")]
+position = Vector2(208.595, 56.4073)

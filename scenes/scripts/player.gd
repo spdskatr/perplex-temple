@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 @export var speed: float = 500.0
@@ -85,8 +86,12 @@ func die() -> void:
 	position = checkpoint_pos
 
 func _physics_process(_delta):
+	print(is_wet())
 	get_input(_delta)
 	move_and_slide()
+
+func is_wet():
+	Element_set.wet(get_elements())
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
