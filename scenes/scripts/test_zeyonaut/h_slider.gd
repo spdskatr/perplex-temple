@@ -2,7 +2,7 @@ extends HSlider
 
 var menu_open = false
 @onready var player = Global.player
-@export var enabled = true
+@export var enabled = false
 
 func _ready() -> void:
 	value_changed.connect(func (value): player.on_slider_changed(self))
