@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://1wl4dkhgm3qs"]
+[gd_scene load_steps=18 format=4 uid="uid://1wl4dkhgm3qs"]
 
 [ext_resource type="PackedScene" uid="uid://bklsi754w04wr" path="res://scenes/misc/transition.tscn" id="1_mjqat"]
 [ext_resource type="Script" path="res://scenes/scripts/level_1.gd" id="1_qdoa2"]
@@ -20,6 +20,12 @@ size = Vector2(10, 10)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cdr4h"]
 size = Vector2(143, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6pp2o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o0sm1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aukfw"]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_qdoa2")
@@ -309,6 +315,35 @@ shape = SubResource("RectangleShape2D_cdr4h")
 [node name="Weight" parent="." instance=ExtResource("10_h17yg")]
 position = Vector2(-2000, -140)
 
+[node name="Checkpoint2" parent="." instance=ExtResource("10_unqw2")]
+position = Vector2(-1600, -260)
+
+[node name="water_tut" type="Area2D" parent="."]
+position = Vector2(-218.324, 60.455)
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="water_tut"]
+position = Vector2(-1.67554, 64.545)
+shape = SubResource("RectangleShape2D_6pp2o")
+
+[node name="shift_tutorial_disable" type="Area2D" parent="."]
+position = Vector2(-96.198, -644.984)
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="shift_tutorial_disable"]
+shape = SubResource("RectangleShape2D_o0sm1")
+
+[node name="hard_puzzle" type="Area2D" parent="."]
+position = Vector2(-1602.57, -303.188)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hard_puzzle"]
+shape = SubResource("RectangleShape2D_aukfw")
+
 [connection signal="body_entered" from="BigCheckpoint" to="." method="_on_big_checkpoint_body_entered"]
 [connection signal="body_entered" from="LevelEnd" to="." method="_on_level_end_body_entered"]
 [connection signal="body_entered" from="ice_tut" to="." method="_on_ice_tut_body_entered"]
+[connection signal="body_entered" from="water_tut" to="." method="_on_water_tut_body_entered"]
+[connection signal="body_entered" from="shift_tutorial_disable" to="." method="_on_shift_tutorial_disable_body_entered"]
+[connection signal="body_entered" from="hard_puzzle" to="." method="_on_hard_puzzle_body_entered"]
