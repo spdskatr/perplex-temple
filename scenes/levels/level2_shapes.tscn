@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://yos43qf52l3v"]
+[gd_scene load_steps=19 format=4 uid="uid://yos43qf52l3v"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_2_shapes.gd" id="1_65ebm"]
 [ext_resource type="TileSet" uid="uid://d035mgrwol727" path="res://scenes/wall_tileset.tres" id="1_lc77h"]
@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://plc656plpuek" path="res://scenes/objects/base_pad.tscn" id="6_x82ac"]
 [ext_resource type="Script" path="res://scenes/levels/audible_world.gd" id="7_4nlck"]
 [ext_resource type="PackedScene" uid="uid://0icglrrykjsp" path="res://scenes/objects/particle_spawner.tscn" id="7_tiwj6"]
+[ext_resource type="AudioStream" uid="uid://wn8yarsc61k1" path="res://assets/sounds/473575__nox_sound__rock_movement_friction_01_pitchdown.wav" id="14_nt1m6"]
+[ext_resource type="AudioStream" uid="uid://cjijy8mmvplae" path="res://assets/sounds/348951__abstraktgeneriert__crumble-2-pitchdown.wav" id="15_ijpg8"]
+[ext_resource type="AudioStream" uid="uid://druqn12dd4r2j" path="res://assets/sounds/562188__gristi__snd_elevator_power_down.wav" id="16_fdj4h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mkomk"]
 shader = ExtResource("2_e0xf2")
@@ -31,6 +34,7 @@ visible = false
 [node name="VisibleWorld" type="Node2D" parent="."]
 material = SubResource("ShaderMaterial_mkomk")
 script = ExtResource("3_y4e7u")
+metadata/_edit_lock_ = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="VisibleWorld"]
 color = Color(0.39, 0.351, 0.35165, 1)
@@ -128,6 +132,7 @@ metadata/_edit_lock_ = true
 [node name="AudibleWorld" type="Node2D" parent="."]
 material = SubResource("ShaderMaterial_jdquk")
 script = ExtResource("7_4nlck")
+metadata/_edit_lock_ = true
 
 [node name="ParticleSpawnerCrumbleWall" parent="AudibleWorld" instance=ExtResource("7_tiwj6")]
 use_parent_material = true
@@ -144,6 +149,24 @@ arity = 5
 [node name="Dialogue" parent="." instance=ExtResource("3_3gwe6")]
 
 [node name="HUD" parent="." instance=ExtResource("4_v1vhc")]
+
+[node name="AudioCrumble" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(600, 100)
+stream = ExtResource("14_nt1m6")
+volume_db = 5.0
+metadata/_edit_lock_ = true
+
+[node name="AudioGate" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(360, 100)
+stream = ExtResource("15_ijpg8")
+volume_db = 5.0
+metadata/_edit_lock_ = true
+
+[node name="AudioTone" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(360, 100)
+stream = ExtResource("16_fdj4h")
+volume_db = 5.0
+metadata/_edit_lock_ = true
 
 [connection signal="body_entered" from="VisibleWorld/PadReset" to="." method="_on_pad_reset_body_entered"]
 [connection signal="body_entered" from="VisibleWorld/PadExit" to="." method="_on_pad_exit_body_entered"]
