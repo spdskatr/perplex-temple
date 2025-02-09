@@ -66,6 +66,8 @@ func crumble_wall() -> void:
 		for dur in [0.1, 0.05, 0.05]:
 			await get_tree().create_timer(dur).timeout
 			particle_spawner.spawn_particle()
+	get_tree().current_scene.get_node("VisibleWorld").time_transition_initial = Time.get_ticks_msec()
+	await get_tree().create_timer(1).timeout
 	reset_puzzle()
 
 func close_door_a(color_a: ColorA, should_close: bool) -> void:
@@ -121,6 +123,12 @@ func _on_door_entered_s(body: Node2D, color: ColorS) -> void:
 			close_door_s(color, true)
 			on_door_entered_cleanup()
 			
+var has_color_combined_hint_actived = false
+func provide_color_hint() -> void:
+	has_color_combined_hint_actived = true
+	dialogue.queue_text("player", "How can I combine these colors to make the ones I hear?")
+	await dialogue.start_text()
+
 func on_door_entered_cleanup() -> void:
 	var number_closed_a: int = 0
 	for b in is_closed_a:
@@ -142,18 +150,23 @@ func on_door_entered_cleanup() -> void:
 		for dur in [0.1, 0.05, 0.05]:
 			await get_tree().create_timer(dur).timeout
 			particle_spawner.spawn_particle()
-	if !has_solved_s && is_closed_a[(target_color_s + 1) % is_closed_a.size()] && is_closed_a[(target_color_s + 2) % is_closed_a.size()]:
+	elif !has_solved_s && is_closed_a[(target_color_s + 1) % is_closed_a.size()] && is_closed_a[(target_color_s + 2) % is_closed_a.size()]:
 		has_solved_s = true
 		particle_spawner.color = COLOR_S_COLORS[target_color_s]
 		particle_spawner.arity = rng.randi_range(3, 6)
 		for dur in [0.1, 0.05, 0.05]:
 			await get_tree().create_timer(dur).timeout
 			particle_spawner.spawn_particle()
+	elif !has_color_combined_hint_actived && !has_solved_a && !has_solved_s && is_closed_a[target_color_a] && is_closed_s[target_color_s]:
+		provide_color_hint()
+		
+	await get_tree().create_timer(0.5).timeout
 	for i in range(is_closed_a.size()):
 		close_door_a(i, false)
 	for i in range(is_closed_s.size()):
 		close_door_s(i, false)
-		
+	
+	print(has_solved_a, has_solved_s)
 	if has_solved_a && has_solved_s:
 		var walls: TileMapLayer = get_tree().current_scene.get_node("VisibleWorld/Walls")
 		for i in range(2):
