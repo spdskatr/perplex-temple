@@ -14,8 +14,13 @@ func with_blink(callback):
 func _ready() -> void:
 	$HUD.enable_menu_toggle = false
 	$HUD/SliderBox/Panel/HSlider.value = 30
+	Global.transition.visible = true
+	Global.transition.update(Color.BLACK)
+	post_spawn.call_deferred()
 	post_spawn_dialogue.call_deferred()
-	pass # Replace with function body.
+	
+func post_spawn():
+	await Global.transition.transit(Color(0, 0, 0, 1), Color(0, 0, 0, 0))
 
 var disable_shift_tutorial = false
 func _on_shift_tutorial_disable_body_entered(body: Node2D) -> void:

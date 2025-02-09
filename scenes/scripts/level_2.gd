@@ -5,7 +5,12 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$HUD/SliderBox/Panel/HSlider.value = 30
-	pass # Replace with function body.
+	post_spawn.call_deferred()
+	Global.transition.visible = true
+	Global.transition.update(Color.BLACK)
+	
+func post_spawn():
+	await Global.transition.transit(Color(0, 0, 0, 1), Color(0, 0, 0, 0))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
