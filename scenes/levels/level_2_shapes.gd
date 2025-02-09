@@ -151,7 +151,7 @@ func _on_door_entered_s(body: Node2D, color: ColorS) -> void:
 var has_color_combined_hint_actived = false
 func provide_color_hint() -> void:
 	has_color_combined_hint_actived = true
-	dialogue.queue_text("player", "How can I combine these colours to make the ones I hear?")
+	dialogue.queue_text("player", "How can I combine the colours before me to make the ones I hear?")
 	await dialogue.start_text()
 
 var is_level_done = false
@@ -182,6 +182,7 @@ func on_door_entered_cleanup() -> void:
 	if number_closed_s == 2:
 		for i in is_closed_s.size():
 			if !is_closed_s[i]:
+				await get_tree().create_timer(0.5).timeout
 				play_color_a_sound(i)
 				for dur in [0.1, 0.05, 0.05]:
 					particle_spawner.color = COLOR_A_COLORS[i]
@@ -192,6 +193,7 @@ func on_door_entered_cleanup() -> void:
 	elif number_closed_a == 2:
 		for i in is_closed_a.size():
 			if !is_closed_a[i]:
+				await get_tree().create_timer(0.5).timeout
 				play_color_s_sound(i)
 				for dur in [0.1, 0.05, 0.05]:
 					particle_spawner.color = COLOR_S_COLORS[i]
