@@ -4,6 +4,7 @@ var has_wall_crumbled: bool = false
 
 @onready var hud = Global.hud
 @onready var player = Global.player
+@onready var dialogue = $Dialogue/Panel
 
 var rng = RandomNumberGenerator.new()
 
@@ -31,9 +32,16 @@ var has_solved_s: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	get_node("Transition").visible = true
 	rng.randomize()
 	var slider = hud.get_node("SliderBox/Panel/HSlider")
 	slider.value_changed.connect(_on_slider_changed)
+	post_spawn.call_deferred()
+	
+func post_spawn():
+	await Global.transition.transit(Color(0, 0, 0, 1), Color(0, 0, 0, 0))
+	dialogue.queue_text("player", "I can't see a way out...")
+	await dialogue.start_text()
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

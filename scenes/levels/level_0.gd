@@ -9,10 +9,17 @@ func _ready() -> void:
 func change_scene_to_main():
 	get_tree().change_scene_to_file("res://scenes/levels/level1.tscn")
 
+func with_blink(callback):
+	var blinking = func():
+		Global.player.frozen = true
+		await Global.transition.transit(Color(0, 0, 0, 0), Color(0, 0, 0, 1))
+		callback.call()
+		Global.player.frozen = false
+	return blinking
+
 func _on_door_body_entered(body: Node2D) -> void:
 	if talked and body is CharacterBody2D:
-		await Global.transition.transit(Color(0, 0, 0), Color(0, 0, 0))
-		change_scene_to_main.call_deferred()
+		with_blink(change_scene_to_main).call_deferred()
 
 
 func _on_dude_body_entered(body):
