@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://bo51v4dymvm1t"]
+[gd_scene load_steps=16 format=4 uid="uid://bo51v4dymvm1t"]
 
 [ext_resource type="Script" path="res://scenes/scripts/test_spdskatr/level.gd" id="1_12a1y"]
 [ext_resource type="PackedScene" uid="uid://c7861vcnmeslg" path="res://scenes/objects/player.tscn" id="1_ll32n"]
@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://bklsi754w04wr" path="res://scenes/misc/transition.tscn" id="10_3omjc"]
 [ext_resource type="PackedScene" uid="uid://d4exlr811ynfd" path="res://scenes/objects/checkpoint.tscn" id="11_y4kdw"]
 [ext_resource type="Texture2D" uid="uid://d1ijrt0c7yt4a" path="res://assets/faces/placeholder.png" id="12_y4k28"]
+[ext_resource type="PackedScene" uid="uid://cas8mlxbss1b7" path="res://scenes/objects/water.tscn" id="13_xtrc7"]
+[ext_resource type="PackedScene" uid="uid://c5282cqngi27k" path="res://scenes/objects/fire.tscn" id="14_8ahi5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8gwwp"]
 size = Vector2(10, 10)
@@ -88,6 +90,15 @@ position = Vector2(500, 0)
 [node name="Sprite2D" type="Sprite2D" parent="Checkpoint"]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("12_y4k28")
+
+[node name="Water" parent="." instance=ExtResource("13_xtrc7")]
+position = Vector2(80.5872, 406.708)
+
+[node name="Fire" parent="Water" instance=ExtResource("14_8ahi5")]
+position = Vector2(170.057, -7.13525)
+
+[node name="Fire" parent="Water/Fire" instance=ExtResource("14_8ahi5")]
+position = Vector2(-108.812, 88.5959)
 
 [connection signal="body_entered" from="Pad" to="." method="_on_pad_body_entered"]
 [connection signal="body_entered" from="Pad2" to="." method="_on_pad_2_body_entered"]

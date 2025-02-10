@@ -7,7 +7,7 @@
 size = Vector2(30, 30)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aqsau"]
-radius = 1.0
+radius = 12.0
 
 [sub_resource type="Gradient" id="Gradient_jmb04"]
 offsets = PackedFloat32Array(0, 0.272727, 0.603896, 1)
@@ -50,9 +50,6 @@ hframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_pe3me")
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(2000, 0)
 
 [node name="Heart" type="Area2D" parent="."]
 

@@ -88,7 +88,7 @@ var pep_talk_done = false
 func _on_hard_puzzle_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D and not pep_talk_done:
 		pep_talk_done = true
-		dialogue.queue_text("npc", "I've been told that this next puzzle is a bit difficult.")
+		dialogue.queue_text("npc", "I've been told that this next puzzle has two solutions.")
 		dialogue.queue_text("npc", "Good luck!")
 		dialogue.queue_text("player", "...")
 		dialogue.start_text()
