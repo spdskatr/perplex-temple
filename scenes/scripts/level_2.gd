@@ -17,8 +17,10 @@ func post_spawn():
 func _process(delta: float) -> void:
 	pass
 
+var was_dead_end_reached = false
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body is CharacterBody2D:
+	if !was_dead_end_reached and body is CharacterBody2D:
+		was_dead_end_reached = true
 		dialogue.queue_text("player", "Dead end...")
 		dialogue.queue_text("npc", "I think I saw the corridor on the right a bit earlier.")
 		dialogue.queue_text("player", "But if I move back, I'll slide right back!")

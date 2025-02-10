@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cbsyinmrhl3ll" path="res://scenes/misc/dialogue.tscn" id="3_3gwe6"]
 [ext_resource type="Script" path="res://scenes/scripts/visible_world.gd" id="3_y4e7u"]
 [ext_resource type="PackedScene" uid="uid://d3bbckj3x7cqi" path="res://scenes/hud.tscn" id="4_v1vhc"]
-[ext_resource type="PackedScene" path="res://scenes/objects/polygon_sign.tscn" id="5_vligt"]
+[ext_resource type="PackedScene" uid="uid://blneno1itbkph" path="res://scenes/objects/polygon_sign.tscn" id="5_vligt"]
 [ext_resource type="Shader" path="res://shaders/blindsight.gdshader" id="6_6t56f"]
 [ext_resource type="PackedScene" uid="uid://plc656plpuek" path="res://scenes/objects/base_pad.tscn" id="6_x82ac"]
 [ext_resource type="Script" path="res://scenes/levels/audible_world.gd" id="7_4nlck"]

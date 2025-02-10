@@ -109,15 +109,15 @@ func _process(_delta: float) -> void:
 	# down 0.25
 	# left 0.5
 	# up -0.25
-	var r = rotation / (2*PI)
+	var r = rotation / (2 * PI)
 	var sprite = $Sprite2D
 	sprite.rotation = -rotation
 	if 0.12 < r and r < 0.37:
 		sprite.frame = 0
-	if -0.12 < r and r < 0.12:
+	elif -0.12 < r and r < 0.12:
 		sprite.frame = 1
-	if -0.37 < r and r < -0.12:
+	elif -0.37 < r and r < -0.12:
 		sprite.frame = 2
-	if 0.37 < r and r < 0.62:
+	else:
 		sprite.frame = 3
 		

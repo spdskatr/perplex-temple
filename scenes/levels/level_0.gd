@@ -22,10 +22,9 @@ func _on_door_body_entered(body: Node2D) -> void:
 	if talked and body is CharacterBody2D:
 		with_blink(change_scene_to_main).call_deferred()
 
-
 func _on_dude_body_entered(body):
-	talked = true
-	if body is CharacterBody2D:
+	if !talked && body is CharacterBody2D:
+		talked = true
 		dialogue.queue_text("npc", "Greetings, traveller.")
 		dialogue.queue_text("player", "...what is this place?")
 		dialogue.queue_text("npc", "You fell down the ravine above us.")
@@ -59,4 +58,4 @@ func _on_dude_body_entered(body):
 		
 		dialogue.start_text()
 		await dialogue.done()
-		$LockedDoor.visible = false
+		$VisibleWorld/LockedDoor.visible = false

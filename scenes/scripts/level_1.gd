@@ -49,7 +49,7 @@ func _process(delta: float) -> void:
 
 func _on_big_checkpoint_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
-		$Player.checkpoint_pos = $BigCheckpoint.position
+		Global.player.checkpoint_pos = $BigCheckpoint.position
 
 func _on_level_end_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
