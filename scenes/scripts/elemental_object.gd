@@ -30,5 +30,6 @@ func _process(_delta: float) -> void:
 
 func _deapply_tick(_delta):
 	apply_timeout += _delta
-	if apply_timeout > 0.1:
+	# Tweak to 0.5 for web export for lower FPS
+	if apply_timeout > 0.5:
 		player.visible_objects.erase(get_instance_id())
