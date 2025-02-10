@@ -47,16 +47,9 @@ func post_spawn_dialogue():
 func _process(delta: float) -> void:
 	pass
 
-var btn_tutorial_done = false
 func _on_big_checkpoint_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		$Player.checkpoint_pos = $BigCheckpoint.position
-		if not btn_tutorial_done:
-			btn_tutorial_done = true
-			dialogue.queue_text("npc", "Remember, you can always press [R] or [F5] to reset!")
-			dialogue.queue_text("player", "Yeah, yeah...")
-			dialogue.start_text()
-
 
 func _on_level_end_body_entered(body: Node2D) -> void:
 	if body is CharacterBody2D:

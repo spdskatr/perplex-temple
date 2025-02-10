@@ -110,3 +110,16 @@ offset_top = 616.0
 offset_right = 1152.0
 offset_bottom = 639.0
 script = ExtResource("8_p0y1b")
+
+[node name="RestartPrompt" type="Label" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 200.0
+offset_top = 525.0
+offset_right = 980.0
+offset_bottom = 572.0
+theme_override_fonts/font = ExtResource("4_2m57d")
+theme_override_font_sizes/font_size = 32
+text = "Press [R] to return to the last checkpoint."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
