@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://v2se0dmihli0"]
+[gd_scene load_steps=17 format=4 uid="uid://v2se0dmihli0"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_3.gd" id="1_bl4ch"]
 [ext_resource type="PackedScene" uid="uid://bklsi754w04wr" path="res://scenes/misc/transition.tscn" id="2_bebkd"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d3bbckj3x7cqi" path="res://scenes/hud.tscn" id="6_a0yrt"]
 [ext_resource type="PackedScene" uid="uid://cas8mlxbss1b7" path="res://scenes/objects/water.tscn" id="7_84kqp"]
 [ext_resource type="PackedScene" uid="uid://c5282cqngi27k" path="res://scenes/objects/fire.tscn" id="8_dw4at"]
+[ext_resource type="Texture2D" uid="uid://d1ijrt0c7yt4a" path="res://assets/faces/placeholder.png" id="9_x780o"]
 
 [sub_resource type="Gradient" id="Gradient_co0vo"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
@@ -22,6 +23,9 @@ fill_to = Vector2(0.805046, 0.933486)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2h8io"]
 size = Vector2(34, 226)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eeaks"]
+size = Vector2(60, 60)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_84lo2"]
 size = Vector2(72, 312)
@@ -155,6 +159,16 @@ position = Vector2(-824, 82)
 position = Vector2(-495, 7)
 shape = SubResource("RectangleShape2D_2h8io")
 
+[node name="Spud" type="Area2D" parent="."]
+position = Vector2(-2211.42, 887.577)
+
+[node name="Sprite2D" type="Sprite2D" parent="Spud"]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("9_x780o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spud"]
+shape = SubResource("RectangleShape2D_eeaks")
+
 [node name="FinishDialogue" type="Area2D" parent="."]
 position = Vector2(-2128, 0)
 
@@ -180,4 +194,5 @@ offset_bottom = 1144.0
 color = Color(0.327039, 0.604445, 0.30042, 1)
 
 [connection signal="body_entered" from="PathIsSealedDialogue" to="." method="_on_path_is_sealed_dialogue_body_entered"]
+[connection signal="body_entered" from="Spud" to="." method="_on_spud_body_entered"]
 [connection signal="body_entered" from="FinishDialogue" to="." method="_on_finish_dialogue_body_entered"]

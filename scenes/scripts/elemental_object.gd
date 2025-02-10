@@ -26,8 +26,6 @@ func _physics_process(delta: float) -> void:
 			apply_timeout = 0
 			player.visible_objects[get_instance_id()] = element
 		else:
-			if t == null:
-				print(self, "hit nothing. This shouldn't happen?")
 			_deapply_tick(delta)
 	else:
 		_deapply_tick(delta)
