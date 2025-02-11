@@ -58,4 +58,8 @@ func _on_dude_body_entered(body):
 		
 		dialogue.start_text()
 		await dialogue.done()
-		$VisibleWorld/LockedDoor.visible = false
+		var walls: TileMapLayer = $Walls
+		for i in range(2):
+			for j in range(2):
+				walls.set_cell(Vector2i(16 + i, -12 + j), 1, Vector2(i, j))
+		$AudioGate.play()
